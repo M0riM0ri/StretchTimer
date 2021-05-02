@@ -1,3 +1,46 @@
-// Place all the styles related to the Timer controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  margin: 0;
+  font-family: "SF Pro JP",
+    "SF Pro Text",
+    "SF Pro Icons",
+    "Hiragino Kaku Gothic Pro",
+    "ヒラギノ角ゴ Pro W3",
+    メイリオ,
+    Meiryo,
+    "ＭＳ Ｐゴシック",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+nav {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      width: 18%;
+      min-width: 90px;
+
+      a {
+        text-decoration: none;
+        color: #aaa;
+
+      }
+    }
+  }
+}
+
+nav ul li.current a {
+  color: #000;
+}
+
+nav ul li a:hover {
+  color: #fff;
+}

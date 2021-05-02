@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  get 'timer/index'
-  root 'application#hello'
+  root 'timer#index'
 end

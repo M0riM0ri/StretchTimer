@@ -1,2 +1,87 @@
-<h1>Timer#index</h1>
-<p>Find me in app/views/timer/index.html.erb</p>
+<!-- ナビゲーションバー -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul>
+    <li class=”current”>
+      <%= link_to image_tag('logo.png', :height => '50'), root_path  %></li>
+    <li><a href=”#”>About</a></li>
+    <li><a href=”#”>Log</a></li>
+    <li><a href=”#”>SignUp</a></li>
+    <li><a href=”#”>SignIn</a></li>
+  </ul>
+</nav>
+
+<!-- 通知許可ボタン -->
+<button class="btn btn-primary" id="init-button">
+  まずはここをクリックして通知を許可してください
+</button>
+
+<!-- 時間設定 -->
+<div id="elapse-message">
+  <p class="init-message-text">
+    PC作業は一時間毎に休憩をとることが健康にいいとされています
+  </p>
+  <p class="elapse-message-text">
+    現在、作業開始から何分経過していますか？
+  </p>
+  <select id="elapse-box" onchange="elapseSet()">
+    <option value="0" id="zero">0</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="25">25</option>
+    <option value="30">30</option>
+    <option value="35">35</option>
+    <option value="40">40</option>
+    <option value="45">45</option>
+    <option value="50">50</option>
+    <option value="55">55</option>
+  </select>
+  <p class=elapse-box-text>分</p>
+  <button class="btn btn-primary" id="start-button">
+    Timer Start
+  </button>
+  <div class="border p-1">
+    <img src='./picture/others/shisei.png' width=250px alt="画像">
+    <img src='./picture/others/resttime.png' width=350px alt="画像">
+  </div>
+</div>
+
+<!-- 時間表示 -->
+<div id="time-block">
+  <p id="time">
+    -
+  </p>
+</div>
+
+<!-- 遷移画像 -->
+<img id="chart-pic" src='./picture/chart/00分.jpg' width="450">
+
+<!-- 休憩ボタン -->
+<button class="btn btn-primary" id="reset-button">
+  休憩
+</button>
+
+<!-- 休憩中 -->
+<div id="break">
+  <p class="break-text">
+    お疲れ様です。目を休めてストレッチをしましょう。
+  </p>
+</div>
+<img id="break-pic" src='./picture/fitness/fitness.PNG' width="500">
+
+<!-- 業務再開 -->
+<button class="btn btn-primary" id="restart-button">
+  タイマ再開
+</button>
+
+<!-- 更新履歴、ご要望 -->
+<div class="links">
+  <a class="btn btn-outline-primary btn-sm" href="./html/log.html" target="_blank">
+    更新履歴
+  </a>
+  <a class="btn btn-outline-primary btn-sm" href="http://gunj0.site-station.net/" target="_blank">
+    <span class="badge badge-primary">NEW </span> ご意見・ご要望
+  </a>
+
+</div>
