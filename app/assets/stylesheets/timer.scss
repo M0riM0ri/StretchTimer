@@ -1,46 +1,11 @@
 body {
-  margin: 0;
-  font-family: "SF Pro JP",
-    "SF Pro Text",
-    "SF Pro Icons",
-    "Hiragino Kaku Gothic Pro",
-    "ヒラギノ角ゴ Pro W3",
-    メイリオ,
-    Meiryo,
-    "ＭＳ Ｐゴシック",
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-
-nav {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8);
-
-  ul {
-    margin: 0;
-    padding: 0;
-
-    li {
-      list-style: none;
-      display: inline-block;
-      width: 18%;
-      min-width: 90px;
-
-      a {
-        text-decoration: none;
-        color: #aaa;
-
-      }
-    }
-  }
 }
 
-nav ul li.current a {
-  color: #000;
+.main {
+  margin: 50px auto;
 }
 
-nav ul li a:hover {
-  color: #fff;
+.init-message {
+  margin: 50px auto;
 }
