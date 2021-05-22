@@ -41,13 +41,13 @@
               <a class="nav-link" href="#">ABOUT</a>
             </li>
             <li class="nav-item col">
-              <a class="nav-link" href="#">TimerLog</a>
+              <a class="nav-link" href="#">Timer Log</a>
             </li>
             <% if user_signed_in? %>
-              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link"}), class: "nav-item col" %>
+              <%= content_tag :li, (link_to "Log out", destroy_user_session_path, {method: :delete, class: "nav-link"}), class: "nav-item col" %>
             <% else %>
-              <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link"), class: "nav-item col" %>
-              <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link"), class: "nav-item col" %>              
+              <%= content_tag :li, (link_to "Log in", new_user_session_path, class: "post nav-link"), class: "nav-item col" %>
+              <%= content_tag :li, (link_to "Sign up", new_user_registration_path, class: "post nav-link"), class: "nav-item col" %>              
             <% end %>
           </ul>
         </div>
