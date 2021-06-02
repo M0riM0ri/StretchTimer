@@ -1,4 +1,4 @@
-<div class="main">
+<div id="main">
   <!-- 通知許可ボタン -->
   <button class="btn btn-primary" id="init-button">
     まずはここをクリックして通知を許可してください
@@ -22,7 +22,7 @@
     <p class="elapse-message-text">
       休憩間隔
     </p>
-    <select id="elapse-box" onchange="elapseSet()">
+    <select id="elapse-box">
       <option value="0" id="zero">0</option>
       <option value="5">5</option>
       <option value="10">10</option>
@@ -40,10 +40,12 @@
     <button class="btn btn-primary" id="start-button">
       Timer Start
     </button>
+    <!--
     <div class="border p-1">
       <img src='./picture/others/shisei.png' width=250px alt="画像">
       <img src='./picture/others/resttime.png' width=350px alt="画像">
     </div>
+    -->
   </div>
 
   <!-- 時間表示 -->
@@ -53,8 +55,9 @@
     </p>
   </div>
 
-  <!-- 遷移画像 -->
+  <!-- 遷移画像 
   <img id="chart-pic" src='./picture/chart/00分.jpg' width="450">
+  -->
 
   <!-- 休憩ボタン -->
   <button class="btn btn-primary" id="reset-button">
@@ -67,7 +70,10 @@
       お疲れ様です。目を休めてストレッチをしましょう。
     </p>
   </div>
+  
+  <!--
   <img id="break-pic" src='./picture/fitness/fitness.PNG' width="500">
+  -->
 
   <!-- 業務再開 -->
   <button class="btn btn-primary" id="restart-button">
