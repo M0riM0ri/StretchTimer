@@ -45,12 +45,26 @@ const main = document.getElementById("main");
 const zero = document.getElementById("zero");
 
 /* 通知許可ボタンクリック時動作 */
-init_btn.onclick = function () {
-  init_btn.style.display   = "none";
-  elapse_msg.style.display = "block";
-  elapse_box.style.display = "inline-block";
-  start_btn.style.display  = "block";
-  zero.selected = true;
+if ("Notification" in window) {
+  let permission = Notification.permission;
+  if (permission === "granted") {
+    init_btn.style.display = "none";
+  }else{
+    init_btn.onclick = function () {
+      init_btn.style.display   = "none";
+      elapse_msg.style.display = "block";
+      elapse_box.style.display = "inline-block";
+      start_btn.style.display  = "block";
+      zero.selected = true;
+      Notification
+        .requestPermission()
+        .then(function () {
+          let notification = new Notification("通知が許可されました。");
+        });
+    }  
+  }    
+}else{
+  init_btn.innerHTML = "このブラウザは本アプリに対応しておりません。"
 }
 
 /* 開始ボタンクリック時動作 */
@@ -96,6 +110,17 @@ restart_btn.onclick = function () {
   elapse_box.style.display = "inline-block";
   start_btn.style.display = "block";
   zero.selected = true;
+  (function() {
+  if ("Notification" in window) {
+    var permission = Notification.permission;
+
+    if (permission === "denied" || permission === "granted") {
+      return;
+    }
+
+    Notification.requestPermission();
+  }
+})();
 }
 
 /* 初期時間セット */
@@ -104,7 +129,6 @@ document.getElementById("elapse-box").onchange = elapseSet();
 
 /* 時間計算 & 表示 */
 function time() {
-  console.log('Hello');
   if (start === 1) {
     second++;
     if (second === 60) {
