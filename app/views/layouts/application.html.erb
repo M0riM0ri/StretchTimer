@@ -34,20 +34,23 @@
         <!-- リンク -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item col-xl- active">
-              <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
+
+            <li class="nav-item active">
+              <%= content_tag :li, (link_to "Home", root_path, class: "nav-link nav-item active") %>
             </li>
-            <li class="nav-item col-xl-">
-              <a class="nav-link" href="#">ABOUT</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
             </li>
-            <li class="nav-item col-xl-">
+            <li class="nav-item">
               <a class="nav-link" href="#">TimeLog</a>
             </li>
-            <% if user_signed_in? %>
-              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link"}), class: "nav-item col-md-" %>
+
+
+          <% if user_signed_in? %>
+              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link"}), class: "nav-item" %>
             <% else %>
-              <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link"), class: "nav-item col-md-" %>
-              <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link"), class: "nav-item col-md-" %>
+              <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link"), class: "nav-item" %>
+              <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link"), class: "nav-item" %>
             <% end %>
           </ul>
         </div>
@@ -56,7 +59,7 @@
 
     <%= yield %>
 
-    <%= javascript_pack_tag 'timer/index' %>
+    <%= javascript_pack_tag 'timer/main' %>
 
   </body>
 </html>
