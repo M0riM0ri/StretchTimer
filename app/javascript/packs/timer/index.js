@@ -1,5 +1,6 @@
 /* 変数 */
-let f_timer = 0, startTime = 0, nowTime = 0, elapsedTime = 0, breakTime = 0;
+let f_timer = 0
+let startTime = 0, nowTime = 0, elapsedTime = 0, breakTime = 0, pauseTime = 0;
 
 /* 定数 */
 const notification_btn = document.getElementById("notification-button");
@@ -9,6 +10,7 @@ const break_time = document.getElementById("break-time");
 const zero = document.getElementById("zero");
 const start_btn = document.getElementById("start-button");
 const time_display_box = document.getElementById("time-display-box");
+const time_msg = document.getElementById("time-message");
 const time_display = document.getElementById("time-display");
 const pause_break_btn = document.getElementById("pause-break-button");
 const pause_btn = document.getElementById("pause-button");
@@ -60,19 +62,37 @@ start_btn.onclick = function () {
   start_btn.style.display = "none";
   time_display_box.style.display = "block";
   pause_break_btn.style.display = "block";
-  document.title = "作業中";
+  document.title = "計測中 ~StretchTimer~";
+}
+
+/* 一時停止ボタンクリック時動作 */
+pause_btn.onclick = function () {
+  if (f_timer  == 1){
+    pauseTime = elapsedTime;
+    f_timer = 0;
+    time_msg.innerHTML = "一時停止中"
+    document.title = "一時停止中 ~StretchTimer~";
+  }else{    
+    startTime = Date.now();
+    f_timer = 1;
+    time_msg.innerHTML = "計測中"
+    document.title = "計測中 ~StretchTimer~";
+  }
+
+  //表示切り替え
 }
 
 /* 休憩ボタンクリック時動作 */
 break_btn.onclick = function () {
   f_timer = 0;
+  pauseTime = 0;
 
   //表示切り替え
   time_display_box.style.display = "none";
   pause_break_btn.style.display = "none";
   break_msg.style.display = "block";
   restart_btn.style.display = "block";
-  document.title = "休憩中";
+  document.title = "休憩中 ~StretchTimer~";
 }
 
 /* 再開ボタンクリック時動作 */
@@ -87,7 +107,8 @@ restart_btn.onclick = function () {
   restart_btn.style.display = "none";
   time_display_box.style.display = "block";
   pause_break_btn.style.display = "block";
-  document.title = "作業中";
+  time_msg.innerHTML = "計測中"
+  document.title = "計測中 ~StretchTimer~";
 }
 
 /* 休憩時間セット */
@@ -101,7 +122,7 @@ document.getElementById("break-time").onchange = elapseSet();
 function time() {
   if (f_timer == 1) {
     nowTime = Date.now();
-    elapsedTime = nowTime - startTime;
+    elapsedTime = nowTime - startTime + pauseTime;
     let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
     let minutes = Math.floor(elapsedTime / 1000 / 60 % 60);
     let seconds = Math.floor(elapsedTime / 1000 % 60);
@@ -113,27 +134,27 @@ function time() {
     //通知表示
     if (seconds == 0 && minutes == 30 && hours == 0) {
       Notification
-        .requestPermission() //通知ダイアログ表示
+        .requestPermission()
         .then(function () {
           let notification = new Notification("30分が経過しました。");
         });
     }
     if (seconds == 0 && minutes == 45 && hours == 0) {
       Notification
-        .requestPermission() //通知ダイアログ表示
+        .requestPermission()
         .then(function () {
           let notification = new Notification("45分が経過しました。");
         });
     }
     if (seconds == 0 && minutes == 0 && hours == 1) {
       Notification
-        .requestPermission() //通知ダイアログ表示
+        .requestPermission()
         .then(function () {
           let notification = new Notification("1時間が経過しました。");
         });
     } else if (seconds == 0 && minutes % 15 == 0 && hours >= 1) {
       Notification
-        .requestPermission() //通知ダイアログ表示
+        .requestPermission()
         .then(function () {
           let notification = new Notification("1時間以上が経過しました。");
         });
