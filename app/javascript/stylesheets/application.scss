@@ -1,28 +1,32 @@
 @import "~bootstrap/scss/bootstrap";
 
-body {
-  font-family: monospace;
-  text-align: center;
-}
-
 nav {
   text-align: right;
 }
 
 .main {
+  font-family: monospace;
+  text-align: center;
   margin: 50px auto;
 }
 
-.init-message {
+#recommend-message {
   margin: 50px auto;
+}
+
+#break-time-set {
+
+  p{
+    margin: 0;
+  }
+}  
+
+.user-name {
+  margin: 0 50px;
 }
 
 .links {
   margin: 50px;
-}
-
-.user-name {
-  margin: 0 50px;
 }
 
 .up-down-margin-sm {
@@ -37,22 +41,13 @@ button {
   margin: 0 auto;
 }
 
-#break {
-  display: none;
-}
-
-#reset-button {
-  display: none;
-}
-
-#time-block {
-  display: none;
-}
-
-#restart-button {
-  display: none;
-}
-
-#start-button {
+#recommend-message,
+#break-time-set,
+#start-button,
+#time-display-box,
+#pause-break-button,
+#break-message,
+#restart-button
+{
   display: none;
 }

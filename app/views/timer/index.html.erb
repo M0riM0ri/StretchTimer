@@ -1,29 +1,30 @@
-<div id="main">
+<div class="main">
+
   <!-- 通知許可ボタン -->
   <button class="btn btn-primary" id="notification-button">
     まずはここをクリックして通知を許可してください
   </button>
 
-    <div class="init-message">
-      <p class="init-message-text">
-        PC作業は、1時間に10~15分休憩をとることが、必要とされています。
-        <p>
-          参考リンク:
-          <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
-            情報機器作業における労働衛生管理のためのガイドラインについて
-          </a>
-        </p>
-      </p>
-    </div>
+  <!-- 推奨メッセージ -->
+  <div class="up-down-margin-sm" id="recommend-message">
+    <p>
+      PC作業は、1時間に10~15分休憩をとることが、推奨されています。
+    </p>
+    <p>
+      参考リンク:
+      <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
+        情報機器作業における労働衛生管理のためのガイドラインについて
+      </a>
+    </p>
+  </div>
 
-  <!-- 時間設定 -->
-  <div id="elapse-message">
-  
-    <p class="elapse-message-text">
-      休憩間隔
+  <!-- 休憩時間セット -->
+  <div class="up-down-margin-sm" id="break-time-set">
+    <p class="d-inline">
+      休憩通知間隔を選んでください　:　
     </p>
 
-    <select id="elapse-box">
+    <select class="d-inline" id="break-time">
       <option value="0" id="zero">0</option>
       <option value="5">5</option>
       <option value="10">10</option>
@@ -38,42 +39,45 @@
       <option value="55">55</option>
     </select>
 
-    <p class=elapse-box-text>
-    分
+    <p class="d-inline">
+    　分
     </p>
-    
-    <button class="btn btn-primary" id="start-button">
-      Timer Start
-    </button>
-    
   </div>
 
+  <!-- タイマ開始ボタン -->
+  <button class="btn btn-primary" id="start-button">
+    Timer Start
+  </button>
+
   <!-- 時間表示 -->
-  <div id="time-block">
-    <p>経過時間</p>
-    <p id="time">
+  <div id="time-display-box">
+    <p class="d-inline">経過時間</p>
+    <p id="time-display">
       -- : -- : --
     </p>
   </div>
 
-  <!-- 一時停止ボタン -->
-  <button class="btn btn-primary" id="pause-button">
-    一時停止
-  </button>
+  <!-- 一時停止&休憩ボタン -->
+  <div class="btn-group up-down-margin-sm" id="pause-break-button">
 
-  <!-- 休憩ボタン -->
-  <button class="btn btn-primary" id="break-button">
-    休憩
-  </button>
+    <button class="btn btn-primary" id="pause-button">
+      一時停止
+    </button>
 
-  <!-- 休憩中メッセージ -->
-  <div id="break">
-    <p class="break-text">
+    <button class="btn btn-primary" id="break-button">
+      休憩
+    </button>
+
+  </div>
+
+  <!-- 休憩メッセージ -->
+  <div id="break-message">
+    <p>
       お疲れ様です。目を休めてストレッチをしましょう。
     </p>
   </div>
   
-  <!-- 再開ボタン -->
+  <!-- タイマ再開ボタン -->
   <button class="btn btn-primary" id="restart-button">
     タイマ再開
   </button>
@@ -87,5 +91,5 @@
       ご意見・ご要望
     </a>
   </div>
-  
+
 </div>
