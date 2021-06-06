@@ -79,6 +79,7 @@ break_btn.onclick = function () {
 restart_btn.onclick = function () {
   breakTime = break_time.value;
   startTime = Date.now();
+  time_display.innerHTML = "00 : 00 : 00"
   f_timer = 1;
 
   //表示切り替え
