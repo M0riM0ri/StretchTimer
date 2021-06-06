@@ -1,11 +1,8 @@
 <div id="main">
   <!-- 通知許可ボタン -->
-  <button class="btn btn-primary" id="init-button">
+  <button class="btn btn-primary" id="notification-button">
     まずはここをクリックして通知を許可してください
   </button>
-
-  <!-- 時間設定 -->
-  <div id="elapse-message">
 
     <div class="init-message">
       <p class="init-message-text">
@@ -19,9 +16,13 @@
       </p>
     </div>
 
+  <!-- 時間設定 -->
+  <div id="elapse-message">
+  
     <p class="elapse-message-text">
       休憩間隔
     </p>
+
     <select id="elapse-box">
       <option value="0" id="zero">0</option>
       <option value="5">5</option>
@@ -36,46 +37,43 @@
       <option value="50">50</option>
       <option value="55">55</option>
     </select>
-    <p class=elapse-box-text>分</p>
+
+    <p class=elapse-box-text>
+    分
+    </p>
+    
     <button class="btn btn-primary" id="start-button">
       Timer Start
     </button>
-    <!--
-    <div class="border p-1">
-      <img src='./picture/others/shisei.png' width=250px alt="画像">
-      <img src='./picture/others/resttime.png' width=350px alt="画像">
-    </div>
-    -->
+    
   </div>
 
   <!-- 時間表示 -->
   <div id="time-block">
+    <p>経過時間</p>
     <p id="time">
-      -- : --
+      -- : -- : --
     </p>
   </div>
 
-  <!-- 遷移画像 
-  <img id="chart-pic" src='./picture/chart/00分.jpg' width="450">
-  -->
+  <!-- 一時停止ボタン -->
+  <button class="btn btn-primary" id="pause-button">
+    一時停止
+  </button>
 
   <!-- 休憩ボタン -->
-  <button class="btn btn-primary" id="reset-button">
+  <button class="btn btn-primary" id="break-button">
     休憩
   </button>
 
-  <!-- 休憩中 -->
+  <!-- 休憩中メッセージ -->
   <div id="break">
     <p class="break-text">
       お疲れ様です。目を休めてストレッチをしましょう。
     </p>
   </div>
   
-  <!--
-  <img id="break-pic" src='./picture/fitness/fitness.PNG' width="500">
-  -->
-
-  <!-- 業務再開 -->
+  <!-- 再開ボタン -->
   <button class="btn btn-primary" id="restart-button">
     タイマ再開
   </button>
@@ -89,4 +87,5 @@
       ご意見・ご要望
     </a>
   </div>
+  
 </div>

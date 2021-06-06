@@ -1,11 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 
-nav {
-  text-align: right;
+body {
+  font-family: monospace;
+  text-align: center;
 }
 
-body {
-  text-align: center;
+nav {
+  text-align: right;
 }
 
 .main {
@@ -34,4 +35,24 @@ body {
 
 button {
   margin: 0 auto;
+}
+
+#break {
+  display: none;
+}
+
+#reset-button {
+  display: none;
+}
+
+#time-block {
+  display: none;
+}
+
+#restart-button {
+  display: none;
+}
+
+#start-button {
+  display: none;
 }
