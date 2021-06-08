@@ -11,54 +11,47 @@
 
   <body>
 
-    <!-- ナビゲーションバー -->
+    <%# ナビゲーションバー %>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
 
-        <!-- ロゴ -->
+        <%# ロゴ %>
         <%= link_to image_tag('logo.png', height: '50'), root_path, class: 'navbar-brand' %>
-      
-        <!-- ログイン時のName表示 -->
+
+        <%# ログイン時のName表示 %>
         <% if user_signed_in? %>
           <div class="user-name text-white ml-auto">User: <%= current_user.name %></div>
         <% else %>
           <div class="user-name text-white ml-auto"></div>
         <% end %>
-      
-        <!-- 展開ボタン -->
+
+        <%# 展開ボタン %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- リンク -->
+        <%# リンク %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
+            <%= content_tag :li, (link_to "Home", root_path, class: "nav-link nav-item #{ 'active' if current_page?(root_path)}") %>
+            <%= content_tag :li, (link_to "About", timer_about_path, class: "nav-link nav-item #{ 'active' if current_page?(timer_about_path)}") %>
+            <%= content_tag :li, (link_to "TimerLog", timer_timerlog_path, class: "nav-link nav-item #{ 'active' if current_page?(timer_timerlog_path)}") %>
 
-            <li class="nav-item active">
-              <%= content_tag :li, (link_to "Home", root_path, class: "nav-link") %>
-            </li>
-            <li class="nav-item">
-              <%= content_tag :li, (link_to "About", timer_about_path, class: "nav-link nav-item ") %>
-            </li>
-            <li class="nav-item">
-              <%= content_tag :li, (link_to "TimerLog", timer_timerlog_path, class: "nav-link nav-item ") %>
-            </li>
-
-
-          <% if user_signed_in? %>
-              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link"}), class: "nav-item" %>
+            <% if user_signed_in? %>
+              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link nav-item #{ 'active' if current_page?(destroy_user_session_path)}"}) %>
             <% else %>
-              <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link"), class: "nav-item" %>
-              <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link"), class: "nav-item" %>
+              <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link nav-item #{ 'active' if current_page?(new_user_session_path)}") %>
+              <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link nav-item #{ 'active' if current_page?(new_user_registration_path)}") %>
             <% end %>
           </ul>
         </div>
       </div>
     </nav>
-      <%# deivseのフラッシュメッセージを表示 %>
-      <p class="notice text-success text-center"><%= notice %></p>
-      <p class="alert text-danger text-center"><%= alert %></p>
+
+    <%# deivseフラッシュメッセージ %>
+    <p class="notice text-success text-center"><%= notice %></p>
+    <p class="alert text-danger text-center"><%= alert %></p>
 
     <%= yield %>
 
