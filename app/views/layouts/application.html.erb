@@ -36,13 +36,13 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item active">
-              <%= content_tag :li, (link_to "Home", root_path, class: "nav-link nav-item active") %>
+              <%= content_tag :li, (link_to "Home", root_path, class: "nav-link") %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <%= content_tag :li, (link_to "About", timer_about_path, class: "nav-link nav-item ") %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">TimeLog</a>
+              <%= content_tag :li, (link_to "TimerLog", timer_timerlog_path, class: "nav-link nav-item ") %>
             </li>
 
 

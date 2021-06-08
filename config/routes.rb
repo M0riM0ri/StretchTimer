@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'timer/index'
   get 'timer/about'
+  get 'timer/timerlog'
 
   root 'timer#index'
 end

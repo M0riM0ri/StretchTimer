@@ -4,4 +4,7 @@ class TimerController < ApplicationController
   
   def about
   end
+
+  def timerlog
+  end
 end
