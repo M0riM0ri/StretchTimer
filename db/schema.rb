@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_060751) do
+ActiveRecord::Schema.define(version: 2021_06_12_055652) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,4 +25,17 @@ ActiveRecord::Schema.define(version: 2021_05_22_060751) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "worktimes", force: :cascade do |t|
+    t.integer "start_time"
+    t.integer "pause_time"
+    t.integer "accumulate_time"
+    t.integer "end_time"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_worktimes_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_worktimes_on_user_id"
+  end
+
+  add_foreign_key "worktimes", "users"
 end
