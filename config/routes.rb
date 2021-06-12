@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'timer/timerlog'
 
   root 'timer#index'
+
+  resources :worktimes
 end

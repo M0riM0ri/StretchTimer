@@ -8,7 +8,7 @@
   <!-- 推奨メッセージ -->
   <div class="up-down-margin-sm" id="recommend-message">
     <p>
-      PC作業は、1時間に10~15分休憩をとることが、推奨されています。
+      PC作業は1時間に10分程度の休憩をとることが推奨されています。
     </p>
     <p>
       参考リンク:
@@ -45,9 +45,10 @@
   </div>
 
   <!-- タイマ開始ボタン -->
-  <button class="btn btn-primary" id="start-button">
-    Timer Start
-  </button>
+    <%= form_for(@worktime) do |f| %>
+      <%= f.hidden_field :start_time, :value => 10 %>
+      <%= f.submit "Timer Start", class: "btn btn-primary", id: "start-button" %>
+    <% end %>
 
   <!-- 時間表示 -->
   <div id="time-display-box">
