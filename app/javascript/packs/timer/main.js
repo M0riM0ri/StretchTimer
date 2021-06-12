@@ -18,17 +18,21 @@ const break_btn = document.getElementById("break-button");
 const break_msg = document.getElementById("break-message");
 const restart_btn = document.getElementById("restart-button");
 
-/* 通知許可ボタンクリック時動作 */
-if ("Notification" in window) { //通知機能がある場合
-  let permission = Notification.permission;
-  if (permission === "granted") { //通知許可されていたら
-
+function notification_click(){
     //表示切り替え
     notification_btn.style.display = "none";
     recommend_msg.style.display = "block";
     break_time_set.style.display = "block";
     zero.selected = true;
     start_btn.style.display = "block";
+}
+
+/* 通知許可ボタンクリック時動作 */
+if ("Notification" in window) { //通知機能がある場合
+  let permission = Notification.permission;
+  if (permission === "granted") { //通知許可されていたら
+
+    notification_click();
 
   }else{
     notification_btn.onclick = function () {
@@ -38,16 +42,14 @@ if ("Notification" in window) { //通知機能がある場合
           let notification = new Notification("通知が許可されました。");
         });
 
-      //表示切り替え
-      notification_btn.style.display = "none";
-      recommend_msg.style.display = "block";
-      break_time_set.style.display = "block";
-      zero.selected = true;
-      start_btn.style.display = "block";
-    }  
+    notification_click();
+
+    }
   }    
 }else{ //通知機能がない場合
-  notification_btn.innerHTML = "このブラウザは本アプリに対応しておりません。"
+  notification_btn.innerHTML
+    = "このブラウザは通知機能に対応しておりません</br>それでもよろしければ、このボタンをクリックしてください</br></br>通知機能を使用する場合、PCにてChrome/Firefox/Edge/Safariをお使いください";
+  notification_btn.onclick = notification_click;
 }
 
 /* 開始ボタンクリック時動作 */
