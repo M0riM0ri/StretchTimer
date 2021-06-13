@@ -59,15 +59,14 @@ button {
   margin: 0 auto;
 }
 
-#recommend-message,
-#break-time-set,
-#start-button,
-#time-display-box,
-#pause-break-button,
-#break-message,
-#restart-button
-{
-  display: none;
+#start-button {
+  margin: 0 auto;
+}
+
+#pause-button,
+#restart-button,
+#break-button {
+  padding: 0;
 }
 
 #error_explanation {
@@ -83,4 +82,9 @@ button {
 
 #time-display {
   font-family: monospace;
+}
+
+.links {
+  margin: 0 auto;
+  text-align: center;
 }

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'users', to: 'users#sign_up' 
 
   get 'timer/index'
+  get 'timer/work'
+  get 'timer/break'
+  
   get 'timer/about'
   get 'timer/timerlog'
 

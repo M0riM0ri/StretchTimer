@@ -1,0 +1,59 @@
+<div class="main">
+
+  <!-- 時間表示 -->
+  <div id="time-display-box">
+    <p id="time-message">
+      計測中
+    </p>
+    <p id="time-display">
+      00 : 00 : 00
+    </p>
+  </div>
+
+  <!-- 一時停止&休憩ボタン -->
+  <div class="btn-group up-down-margin-sm" id="pause-break-button">
+
+    <% if user_signed_in? %>
+      <div class="btn btn-primary" id="pause-button">
+        <%= form_for(@update_worktime) do |f| %>
+        <%= f.hidden_field :pause_time %>
+        <%= f.submit "一時停止", class: "btn btn-primary"%>
+        <% end %>
+      </div>
+    <% else %>
+      <button class="btn btn-primary" id="pause-button">
+        一時停止
+      </button>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="btn btn-primary" id="restart-button">
+        <%= form_for(@update_worktime) do |f| %>
+        <%= f.hidden_field :pause_time %>
+        <%= f.submit "再開", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    <% else %>
+      <button class="btn btn-primary disabled" id="restart-button">
+        再開
+      </button>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="btn btn-primary" id="break-button">
+        <%= form_for(@update_worktime) do |f| %>
+        <%= f.hidden_field :end_time %>
+        <%= f.submit "休憩", class: "btn btn-primary"%>
+        <% end %>
+      </div>
+    <% else %>
+      <button class="btn btn-primary" id="break-button">
+        休憩
+      </button>
+    <% end %>
+
+  </div>
+
+  <%= javascript_pack_tag 'timer/work' %>
+
+</div>

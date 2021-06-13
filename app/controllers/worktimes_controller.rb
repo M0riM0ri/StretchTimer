@@ -1,7 +1,9 @@
 class WorktimesController < ApplicationController
   def create
     @new_worktime = current_user.worktimes.build(worktime_params) if user_signed_in?
-    @new_worktime.save
+    if @new_worktime.save
+      redirect_to timer_work_path
+    end
   end
   
   def update
@@ -14,6 +16,6 @@ class WorktimesController < ApplicationController
 
   private
     def worktime_params
-      params.require(:worktime).permit(:start_time, :pause_time)
+      params.require(:worktime).permit(:start_time, :pause_time, :end_time)
     end
 end
