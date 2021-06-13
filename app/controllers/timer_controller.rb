@@ -1,6 +1,7 @@
 class TimerController < ApplicationController
   def index
-    @worktime = current_user.worktimes.build if user_signed_in?
+    @new_worktime = current_user.worktimes.build if user_signed_in?
+    @update_worktime = current_user.worktimes.find(1) if user_signed_in?
   end
   
   def about
