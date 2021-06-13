@@ -57,6 +57,8 @@ start_btn.onclick = function () {
   breakTime = break_time.value;
   startTime = Date.now();
   f_timer = 1;
+  document.getElementById("worktime_start_time").value = Date.now();
+  
 
   //表示切り替え
   recommend_msg.style.display = "none";
@@ -74,6 +76,7 @@ pause_btn.onclick = function () {
     f_timer = 0;
     time_msg.innerHTML = "一時停止中"
     document.title = "一時停止中 ~StretchTimer~";
+  document.getElementById("worktime_pause_time").value = Date.now();
   }else{    
     startTime = Date.now();
     f_timer = 1;

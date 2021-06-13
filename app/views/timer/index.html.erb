@@ -45,9 +45,15 @@
   </div>
 
   <!-- タイマ開始ボタン -->
-  <%= form_for(@new_worktime) do |f| %>
-    <%= f.hidden_field :start_time, :value => Time.now.to_f*1000 %>
-    <%= f.submit "Timer Start", class: "btn btn-primary", id: "start-button" %>
+  <% if user_signed_in? %>
+    <%= form_for(@new_worktime) do |f| %>
+      <%= f.hidden_field :start_time %>
+      <%= f.submit "Timer Start", class: "btn btn-primary", id: "start-button" %>
+    <% end %>
+  <% else %>
+    <button class="btn btn-primary" id="start-button">
+      Timer Start
+    </button>
   <% end %>
 
   <!-- 時間表示 -->
@@ -63,10 +69,16 @@
   <!-- 一時停止&休憩ボタン -->
   <div class="btn-group up-down-margin-sm" id="pause-break-button">
 
+  <% if user_signed_in? && current_user.worktimes.present? %>
     <%= form_for(@update_worktime) do |f| %>
-      <%= f.hidden_field :pause_time, :value => Time.now.to_f*1000 %>
+      <%= f.hidden_field :pause_time %>
       <%= f.submit "一時停止", class: "btn btn-primary", id: "pause-button" %>
     <% end %>
+  <% else %>
+    <button class="btn btn-primary" id="pause-button">
+      一時停止
+    </button>
+  <% end %>
 
     <button class="btn btn-primary" id="break-button">
       休憩
