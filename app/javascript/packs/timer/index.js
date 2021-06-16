@@ -35,8 +35,10 @@ if ("Notification" in window) {   //通知機能がある場合
 }
 
 /* startボタンクリック動作 */
-start_btn.onclick = function () {
-  document.getElementById("worktime_start_time").value = Date.now();
+if (document.getElementById("worktime_start_time") != null) {
+  start_btn.onclick = function () {
+    document.getElementById("worktime_start_time").value = Date.now();
+  }
 }
 
 /* 休憩時間セット */

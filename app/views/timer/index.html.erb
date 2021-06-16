@@ -7,11 +7,8 @@
 
   <!-- 推奨メッセージ -->
   <div class="up-down-margin-sm" id="recommend-message">
-    <p>
-      PC作業は1時間に10分程度の休憩をとることが推奨されています。
-    </p>
-    <p>
-      参考リンク:
+    <p>PC作業は1時間に10分程度の休憩をとることが推奨されています。</p>
+    <p>参考リンク:
       <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
         情報機器作業における労働衛生管理のためのガイドラインについて
       </a>
@@ -20,10 +17,7 @@
 
   <!-- 休憩時間セット -->
   <div class="up-down-margin-sm" id="break-time-set">
-    <p class="d-inline">
-      休憩通知間隔を選んでください　:　
-    </p>
-
+    <p class="d-inline">休憩通知間隔を選んでください　:　</p>
     <select class="d-inline" id="break-time">
       <option value="0" id="zero">0</option>
       <option value="5">5</option>
@@ -38,24 +32,18 @@
       <option value="50">50</option>
       <option value="55">55</option>
     </select>
-
-    <p class="d-inline">
-    　分
-    </p>
+    <p class="d-inline">分</p>
   </div>
 
   <!-- タイマ開始ボタン -->
   <% if user_signed_in? %>
     <%= form_for(@new_worktime) do |f| %>
       <%= f.hidden_field :start_time %>
-      <%= f.submit "Timer Start", class: "btn btn-primary", id: "start-button" %>
+      <%= f.submit "Timer Start", class: "btn btn-primary w-25", id: "start-button" %>
     <% end %>
   <% else %>
-    <button class="btn btn-primary" id="start-button">
-      Timer Start
-    </button>
+    <%= link_to "Timer Start", timer_work_path, class: "btn btn-primary w-25", id: "start-button" %>
   <% end %>
 
   <%= javascript_pack_tag 'timer/index' %>
-
 </div>
