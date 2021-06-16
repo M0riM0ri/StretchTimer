@@ -9,27 +9,29 @@ const time_msg = document.getElementById("time-message");
 const time_display = document.getElementById("time-display");
 const pause_break_btn = document.getElementById("pause-break-button");
 const pause_btn = document.getElementById("pause-button");
+const restart_btn = document.getElementById("restart-button");
 const break_btn = document.getElementById("break-button");
 const break_msg = document.getElementById("break-message");
 const pause_time = document.getElementById("worktime_pause_time");
+const restart_time = document.getElementById("worktime_restart_time");
 const end_time = document.getElementById("worktime_end_time");
 
 /* 一時停止ボタンクリック時動作 */
 pause_btn.onclick = function () {
-  if (f_timer == 1) {
-    pauseTime = elapsedTime;
-    f_timer = 0;
-    time_msg.innerText = "一時停止中"
-    // pause_btn_text.value = "再開"
-    document.title = "一時停止中 ~StretchTimer~";
-    pause_time.value = Date.now();
-  } else {
-    startTime = Date.now();
-    f_timer = 1;
-    time_msg.innerText = "計測中"
-    // pause_btn.innerText = "一時停止"
-    document.title = "計測中 ~StretchTimer~";
-  }
+  pauseTime = elapsedTime;
+  f_timer = 0;
+  time_msg.innerText = "一時停止中"
+  document.title = "一時停止中 ~StretchTimer~";
+  pause_time.value = Date.now();
+}
+
+/* 再開ボタンクリック時動作 */
+restart_btn.onclick = function () {
+  startTime = Date.now();
+  f_timer = 1;
+  time_msg.innerText = "計測中"
+  document.title = "計測中 ~StretchTimer~";
+  restart_time.value = Date.now();
 }
 
 /* 休憩ボタンクリック動作 */

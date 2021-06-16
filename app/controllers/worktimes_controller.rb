@@ -17,8 +17,8 @@ class WorktimesController < ApplicationController
   def destroy
   end
 
-  
+  private
     def worktime_params
-      params.require(:worktime).permit(:start_time, :pause_time, :end_time)
+      params.require(:worktime).permit(:start_time, :pause_time, :end_time, :restart_time)
     end
 end

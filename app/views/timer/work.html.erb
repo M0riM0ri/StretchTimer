@@ -29,14 +29,12 @@
     <% if user_signed_in? %>
       <div class="btn btn-primary" id="restart-button">
         <%= form_for(@update_worktime) do |f| %>
-        <%= f.hidden_field :pause_time %>
+        <%= f.hidden_field :restart_time %>
         <%= f.submit "再開", class: "btn btn-primary" %>
         <% end %>
       </div>
     <% else %>
-      <button class="btn btn-primary disabled" id="restart-button">
-        再開
-      </button>
+      <button class="btn btn-primary" id="restart-button">再開</button>
     <% end %>
 
     <% if user_signed_in? %>
@@ -47,9 +45,7 @@
         <% end %>
       </div>
     <% else %>
-      <button class="btn btn-primary" id="break-button">
-        休憩
-      </button>
+      <button class="btn btn-primary" id="break-button">休憩</button>
     <% end %>
 
   </div>
