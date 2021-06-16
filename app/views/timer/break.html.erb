@@ -1,10 +1,8 @@
 <div class="main">
 
-  <!-- 休憩メッセージ -->
+  <%# 休憩メッセージ %>
   <div id="break-message">
-    <p>
-      お疲れ様です。目を休めてストレッチをしましょう。
-    </p>
+    <p>お疲れ様です。ストレッチをして身体を休めましょう。</p>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iEda-ZxH_1M" title="YouTube video player"
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
@@ -25,11 +23,8 @@
       allowfullscreen></iframe>
   </div>
 
-  <!-- タイマ再開ボタン -->
-  <button class="btn btn-primary" id="restart-button">
-    タイマ再開
-  </button>
+  <%# Homeボタン %>
+  <%= link_to "戻る", root_path, class: "btn btn-primary w-25", id: "home-button" %>
 
   <%= javascript_pack_tag 'timer/break' %>
-
 </div>

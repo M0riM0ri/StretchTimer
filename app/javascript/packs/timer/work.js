@@ -22,7 +22,9 @@ pause_btn.onclick = function () {
   f_timer = 0;
   time_msg.innerText = "一時停止中"
   document.title = "一時停止中 ~StretchTimer~";
-  pause_time.value = Date.now();
+  if (pause_time != null) {
+    pause_time.value = Date.now();
+  }
 }
 
 /* restartボタンクリック動作 */
@@ -31,13 +33,17 @@ restart_btn.onclick = function () {
   f_timer = 1;
   time_msg.innerText = "計測中"
   document.title = "計測中 ~StretchTimer~";
-  restart_time.value = Date.now();
+  if (restart_time != null) {
+    restart_time.value = Date.now();
+  }
 }
 
 /* breakボタンクリック動作 */
 break_btn.onclick = function () {
-  end_time.value = Date.now();
   f_timer = 0;
+  if (end_time != null) {
+    end_time.value = Date.now();
+  }
 }
 
 /* 時間表示 */

@@ -1,11 +1,11 @@
 <div class="main">
 
-  <!-- 通知許可ボタン -->
+  <%# 通知許可ボタン %>
   <button class="btn btn-primary" id="notification-button">
     まずはここをクリックして通知を許可してください
   </button>
 
-  <!-- 推奨メッセージ -->
+  <%# 推奨メッセージ %>
   <div class="up-down-margin-sm" id="recommend-message">
     <p>PC作業は1時間に10分程度の休憩をとることが推奨されています。</p>
     <p>参考リンク:
@@ -15,9 +15,9 @@
     </p>
   </div>
 
-  <!-- 休憩時間セット -->
+  <%# 休憩間隔セット %>
   <div class="up-down-margin-sm" id="break-time-set">
-    <p class="d-inline">休憩通知間隔を選んでください　:　</p>
+    <p class="d-inline">休憩通知間隔を選んでStartしてください　:　</p>
     <select class="d-inline" id="break-time">
       <option value="0" id="zero">0</option>
       <option value="5">5</option>
@@ -35,7 +35,7 @@
     <p class="d-inline">分</p>
   </div>
 
-  <!-- タイマ開始ボタン -->
+  <%# タイマ開始ボタン %>
   <% if user_signed_in? %>
     <%= form_for(@new_worktime) do |f| %>
       <%= f.hidden_field :start_time %>

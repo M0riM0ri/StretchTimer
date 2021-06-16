@@ -1,55 +1,48 @@
 <div class="main">
 
-  <!-- 時間表示 -->
+  <%# 時間表示 %>
   <div id="time-display-box">
-    <p id="time-message">
-      計測中
-    </p>
-    <p id="time-display">
-      00 : 00 : 00
-    </p>
+    <p id="time-message">計測中</p>
+    <p id="time-display">00 : 00 : 00</p>
   </div>
 
-  <!-- 一時停止&休憩ボタン -->
   <div class="btn-group up-down-margin-sm" id="pause-break-button">
-
-    <% if user_signed_in? %>
-      <div class="btn btn-primary" id="pause-button">
+    <%# 一時停止ボタン %>
+    <div id="pause-button">
+      <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
-        <%= f.hidden_field :pause_time %>
-        <%= f.submit "一時停止", class: "btn btn-primary"%>
+          <%= f.hidden_field :pause_time %>
+          <%= f.submit "一時停止", class: "btn btn-primary"%>
         <% end %>
-      </div>
-    <% else %>
-      <button class="btn btn-primary" id="pause-button">
-        一時停止
-      </button>
-    <% end %>
+      <% else %>
+        <p class="btn btn-primary">一時停止</p>
+      <% end %>
+    </div>
 
-    <% if user_signed_in? %>
-      <div class="btn btn-primary" id="restart-button">
+    <%# 再開ボタン %>
+    <div id="restart-button">
+      <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
-        <%= f.hidden_field :restart_time %>
-        <%= f.submit "再開", class: "btn btn-primary" %>
+          <%= f.hidden_field :restart_time %>
+          <%= f.submit "再開", class: "btn btn-primary" %>
         <% end %>
-      </div>
-    <% else %>
-      <button class="btn btn-primary" id="restart-button">再開</button>
-    <% end %>
+      <% else %>
+        <p class="btn btn-primary">再開</p>
+      <% end %>
+    </div>
 
-    <% if user_signed_in? %>
-      <div class="btn btn-primary" id="break-button">
+    <%# 休憩ボタン %>
+    <div id="break-button">
+      <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
-        <%= f.hidden_field :end_time %>
-        <%= f.submit "休憩", class: "btn btn-primary"%>
+          <%= f.hidden_field :end_time %>
+          <%= f.submit "休憩", class: "btn btn-primary"%>
         <% end %>
-      </div>
-    <% else %>
-      <button class="btn btn-primary" id="break-button">休憩</button>
-    <% end %>
-
+      <% else %>
+        <%= link_to "休憩", timer_break_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 
   <%= javascript_pack_tag 'timer/work' %>
-
 </div>
