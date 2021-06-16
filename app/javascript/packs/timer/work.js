@@ -16,7 +16,7 @@ const pause_time = document.getElementById("worktime_pause_time");
 const restart_time = document.getElementById("worktime_restart_time");
 const end_time = document.getElementById("worktime_end_time");
 
-/* 一時停止ボタンクリック時動作 */
+/* pauseボタンクリック動作 */
 pause_btn.onclick = function () {
   pauseTime = elapsedTime;
   f_timer = 0;
@@ -25,7 +25,7 @@ pause_btn.onclick = function () {
   pause_time.value = Date.now();
 }
 
-/* 再開ボタンクリック時動作 */
+/* restartボタンクリック動作 */
 restart_btn.onclick = function () {
   startTime = Date.now();
   f_timer = 1;
@@ -34,7 +34,7 @@ restart_btn.onclick = function () {
   restart_time.value = Date.now();
 }
 
-/* 休憩ボタンクリック動作 */
+/* breakボタンクリック動作 */
 break_btn.onclick = function () {
   end_time.value = Date.now();
   f_timer = 0;
@@ -83,6 +83,4 @@ function time() {
     }
   }
 }
-
-/* 1000msec毎にtime関数を実行 */
 setInterval(time, 1000);
