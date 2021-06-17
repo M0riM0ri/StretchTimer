@@ -5,6 +5,7 @@ class TimerController < ApplicationController
   
   def work
     @update_worktime = current_user.worktimes.find_by(user_id: current_user.id) if user_signed_in?
+    @start_time = @update_worktime.start_time
   end
 
   def break

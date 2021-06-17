@@ -1,5 +1,9 @@
 <div class="main">
 
+  <%= javascript_tag do %>
+    var hogehoge = <%= raw @time.to_json %>;
+  <% end %>
+
   <%# 時間表示 %>
   <div id="time-display-box">
     <p id="time-message">計測中</p>
@@ -12,7 +16,7 @@
       <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
           <%= f.hidden_field :pause_time %>
-          <%= f.submit "一時停止", class: "btn btn-primary"%>
+          <%= f.submit "一時停止", class: "btn btn-primary", id: "pause_submit" %>
         <% end %>
       <% else %>
         <p class="btn btn-primary">一時停止</p>
@@ -24,7 +28,7 @@
       <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
           <%= f.hidden_field :restart_time %>
-          <%= f.submit "再開", class: "btn btn-primary" %>
+          <%= f.submit "再開", class: "btn btn-primary", id: "restart_submit", disabled: true %>
         <% end %>
       <% else %>
         <p class="btn btn-primary">再開</p>

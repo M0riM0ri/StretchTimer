@@ -22,6 +22,7 @@ pause_btn.onclick = function () {
   f_timer = 0;
   time_msg.innerText = "一時停止中"
   document.title = "一時停止中 ~StretchTimer~";
+  document.getElementById("restart_submit").disabled = false;
   if (pause_time != null) {
     pause_time.value = Date.now();
   }
@@ -33,6 +34,7 @@ restart_btn.onclick = function () {
   f_timer = 1;
   time_msg.innerText = "計測中"
   document.title = "計測中 ~StretchTimer~";
+  document.getElementById("pause_submit").disabled = false;
   if (restart_time != null) {
     restart_time.value = Date.now();
   }
