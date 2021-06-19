@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_122919) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "restart_time"
+    t.bigint "restart_time"
     t.integer "in_progress"
     t.index ["user_id", "created_at"], name: "index_worktimes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_worktimes_on_user_id"
