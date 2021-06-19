@@ -2,19 +2,18 @@
 
 <div>
   <%= javascript_tag do %>
-    let start_time = <%= raw @start_time.to_json %>;
-    let pause_time = <%= raw @pause_time.to_json %>;
-    let restart_time = <%= raw @restart_time.to_json %>;
-    let end_time = <%= raw @end_time.to_json %>;
-    let accumulate_time = <%= raw @accumulate_time.to_json %>;
-    let in_progress = <%= raw @in_progress.to_json %>;
+    let db_start_time = <%= raw @start_time.to_json %>;
+    let db_pause_time = <%= raw @pause_time.to_json %>;
+    let db_restart_time = <%= raw @restart_time.to_json %>;
+    let db_accumulate_time = <%= raw @accumulate_time.to_json %>;
+    let db_in_progress = <%= raw @in_progress.to_json %>;
   <% end %>
 </div>
 
   <%# 時間表示 %>
   <div id="time-display-box">
     <p id="time-message">計測中</p>
-    <p id="time-display">00 : 00 : 00</p>
+    <p id="time-display">Now Loading...</p>
   </div>
 
   <div class="btn-group up-down-margin-sm" id="pause-break-button">
@@ -36,8 +35,9 @@
       <% if user_signed_in? %>
         <%= form_for(@update_worktime, html: { name: "restart_form" }) do |f| %>
           <%= f.hidden_field :restart_time %>
+          <%= f.hidden_field :accumulate_time %>
           <%= f.hidden_field :in_progress, id:"restart_in_progress" %>
-          <%= f.submit "再開", class: "btn btn-primary", id: "restart_submit", type: "button", disabled: true %>
+          <%= f.submit "再開", class: "btn btn-primary", id: "restart_submit", type: "button" %>
         <% end %>
       <% else %>
         <p class="btn btn-primary">再開</p>

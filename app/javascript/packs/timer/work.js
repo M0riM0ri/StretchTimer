@@ -1,7 +1,11 @@
-let f_timer = 1;
-document.title = "計測中 ~StretchTimer~";
+let now_time = 0;
+let elapsed_time = 0;
+let pause_time = db_pause_time;
+let restart_time = db_restart_time;
+let accumulate_time = db_accumulate_time;
+let in_progress = db_in_progress;
 
-let nowTime = 0, elapsedTime = 0, breakTime = 0, pauseTime = 0;
+document.title = "計測中 ~StretchTimer~";
 
 const time_display_box = document.getElementById("time-display-box");
 const time_msg = document.getElementById("time-message");
@@ -11,8 +15,8 @@ const pause_btn = document.getElementById("pause-button");
 const restart_btn = document.getElementById("restart-button");
 const break_btn = document.getElementById("break-button");
 const break_msg = document.getElementById("break-message");
-const pause_time = document.getElementById("worktime_pause_time");
-const restart_time = document.getElementById("worktime_restart_time");
+const worktime_pause_time = document.getElementById("worktime_pause_time");
+const worktime_restart_time = document.getElementById("worktime_restart_time");
 const end_time = document.getElementById("worktime_end_time");
 const pause_submit = document.getElementById("pause_submit");
 const restart_submit = document.getElementById("restart_submit");
@@ -20,15 +24,30 @@ const pause_in_progress = document.getElementById("pause_in_progress");
 const restart_in_progress = document.getElementById("restart_in_progress");
 const break_in_progress = document.getElementById("break_in_progress");
 
+if (in_progress == 0) {
+    elapsed_time = pause_time - restart_time + accumulate_time;
+    let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
+    let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
+    let seconds = Math.floor(elapsed_time / 1000 % 60);
+
+    time_display.innerHTML = ('0' + hours).slice(-2) + " : " +
+      ('0' + minutes).slice(-2) + " : " +
+      ('0' + seconds).slice(-2);
+
+    pause_submit.disabled = true;
+}else{
+    restart_submit.disabled = true;
+}
+
 /* pauseボタンクリック動作 */
 pause_btn.onclick = function () {
-  pauseTime = elapsedTime;
-  f_timer = 0;
+  pause_time = Date.now();
+  in_progress = 0;
   time_msg.innerText = "一時停止中"
   document.title = "一時停止中 ~StretchTimer~";
-  if (pause_time != null) {
+  if (worktime_pause_time != null) {
     pause_in_progress.value = 0;
-    pause_time.value = Date.now();
+    worktime_pause_time.value = Date.now();
   }
   document.pause_form.submit();
   pause_submit.disabled = true;
@@ -37,13 +56,15 @@ pause_btn.onclick = function () {
 
 /* restartボタンクリック動作 */
 restart_btn.onclick = function () {
-  f_timer = 1;
+  accumulate_time = pause_time - restart_time + accumulate_time;
+  restart_time = Date.now();
+  in_progress = 1;
   time_msg.innerText = "計測中"
   document.title = "計測中 ~StretchTimer~";
-  pause_submit.disabled = false;
-  if (restart_time != null) {
+  if (worktime_restart_time != null) {
     restart_in_progress.value = 1;
-    restart_time.value = Date.now();
+    worktime_restart_time.value = Date.now();
+    worktime_accumulate_time.value = accumulate_time;
   }
   document.restart_form.submit();
   pause_submit.disabled = false;
@@ -52,7 +73,7 @@ restart_btn.onclick = function () {
 
 /* breakボタンクリック動作 */
 break_btn.onclick = function () {
-  f_timer = 0;
+  in_progress = 0;
   if (end_time != null) {
     break_in_progress.value = 0;
     end_time.value = Date.now();
@@ -61,12 +82,12 @@ break_btn.onclick = function () {
 
 /* 時間表示 */
 function time() {
-  if (f_timer == 1) {
-    nowTime = Date.now();
-    elapsedTime = nowTime - start_time + pauseTime;
-    let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
-    let minutes = Math.floor(elapsedTime / 1000 / 60 % 60);
-    let seconds = Math.floor(elapsedTime / 1000 % 60);
+  if (in_progress == 1) {
+    now_time = Date.now();
+    elapsed_time = now_time - restart_time + accumulate_time;
+    let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
+    let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
+    let seconds = Math.floor(elapsed_time / 1000 % 60);
 
     time_display.innerHTML = ('0' + hours).slice(-2) + " : " +
       ('0' + minutes).slice(-2) + " : " +
