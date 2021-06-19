@@ -56,7 +56,7 @@ break_btn.onclick = function () {
 function time() {
   if (f_timer == 1) {
     nowTime = Date.now();
-    elapsedTime = nowTime - startTime + pauseTime;
+    elapsedTime = nowTime - start_time + pauseTime;
     let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
     let minutes = Math.floor(elapsedTime / 1000 / 60 % 60);
     let seconds = Math.floor(elapsedTime / 1000 % 60);

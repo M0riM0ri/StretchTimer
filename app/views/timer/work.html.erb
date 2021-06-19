@@ -2,8 +2,12 @@
 
 <div>
   <%= javascript_tag do %>
-    var start_time = <%= raw @start_time.to_json %>;
-    var pause_time = <%= raw @pause_time.to_json %>;
+    let start_time = <%= raw @start_time.to_json %>;
+    let pause_time = <%= raw @pause_time.to_json %>;
+    let restart_time = <%= raw @restart_time.to_json %>;
+    let end_time = <%= raw @end_time.to_json %>;
+    let accumulate_time = <%= raw @accumulate_time.to_json %>;
+    let in_progress = <%= raw @in_progress.to_json %>;
   <% end %>
 </div>
 
@@ -19,6 +23,7 @@
       <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
           <%= f.hidden_field :pause_time %>
+          <%= f.hidden_field :in_progress, id:"restart_in_progress" %>
           <%= f.submit "一時停止", class: "btn btn-primary", id: "pause_submit" %>
         <% end %>
       <% else %>
@@ -31,6 +36,7 @@
       <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
           <%= f.hidden_field :restart_time %>
+          <%= f.hidden_field :in_progress, id:"restart_in_progress" %>
           <%= f.submit "再開", class: "btn btn-primary", id: "restart_submit", disabled: true %>
         <% end %>
       <% else %>

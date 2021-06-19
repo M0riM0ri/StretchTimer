@@ -39,7 +39,9 @@
   <% if user_signed_in? %>
     <%= form_for(@new_worktime) do |f| %>
       <%= f.hidden_field :start_time %>
+      <%= f.hidden_field :pause_time %>
       <%= f.hidden_field :restart_time %>
+      <%= f.hidden_field :accumulate_time %>
       <%= f.hidden_field :in_progress %>
       <%= f.submit "Timer Start", class: "btn btn-primary w-25", id: "start-button" %>
     <% end %>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>{{ start_time }}</p>
+    <p>{{ message }}</p>
   </div>
 </template>
 
@@ -8,8 +8,7 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!",
-      start_time: "hoge"
+      message: "Hello Vue!"
     }
   }
 }

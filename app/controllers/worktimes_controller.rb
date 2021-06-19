@@ -19,6 +19,6 @@ class WorktimesController < ApplicationController
 
   private
     def worktime_params
-      params.require(:worktime).permit(:start_time, :pause_time, :end_time, :restart_time, :in_progress)
+      params.require(:worktime).permit(:start_time, :pause_time, :restart_time, :accumulate_time, :end_time, :in_progress)
     end
 end
