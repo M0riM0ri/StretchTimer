@@ -1,5 +1,4 @@
-let f_timer = 1
-startTime = Date.now();
+let f_timer = 1;
 document.title = "計測中 ~StretchTimer~";
 
 let nowTime = 0, elapsedTime = 0, breakTime = 0, pauseTime = 0;
@@ -15,8 +14,11 @@ const break_msg = document.getElementById("break-message");
 const pause_time = document.getElementById("worktime_pause_time");
 const restart_time = document.getElementById("worktime_restart_time");
 const end_time = document.getElementById("worktime_end_time");
-const restart_submit = document.getElementById("restart_submit");
 const pause_submit = document.getElementById("pause_submit");
+const restart_submit = document.getElementById("restart_submit");
+const pause_in_progress = document.getElementById("pause_in_progress");
+const restart_in_progress = document.getElementById("restart_in_progress");
+const break_in_progress = document.getElementById("break_in_progress");
 
 /* pauseボタンクリック動作 */
 pause_btn.onclick = function () {
@@ -24,30 +26,35 @@ pause_btn.onclick = function () {
   f_timer = 0;
   time_msg.innerText = "一時停止中"
   document.title = "一時停止中 ~StretchTimer~";
-  pause_submit.disabled = true;
-  restart_submit.disabled = false;
   if (pause_time != null) {
+    pause_in_progress.value = 0;
     pause_time.value = Date.now();
   }
+  document.pause_form.submit();
+  pause_submit.disabled = true;
+  restart_submit.disabled = false;
 }
 
 /* restartボタンクリック動作 */
 restart_btn.onclick = function () {
-  startTime = Date.now();
   f_timer = 1;
   time_msg.innerText = "計測中"
   document.title = "計測中 ~StretchTimer~";
   pause_submit.disabled = false;
-  restart_submit.disabled = true;
   if (restart_time != null) {
+    restart_in_progress.value = 1;
     restart_time.value = Date.now();
   }
+  document.restart_form.submit();
+  pause_submit.disabled = false;
+  restart_submit.disabled = true;
 }
 
 /* breakボタンクリック動作 */
 break_btn.onclick = function () {
   f_timer = 0;
   if (end_time != null) {
+    break_in_progress.value = 0;
     end_time.value = Date.now();
   }
 }
