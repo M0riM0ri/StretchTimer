@@ -1,8 +1,11 @@
 <div class="main">
 
+<div>
   <%= javascript_tag do %>
-    var hogehoge = <%= raw @time.to_json %>;
+    var start_time = <%= raw @start_time.to_json %>;
+    var pause_time = <%= raw @pause_time.to_json %>;
   <% end %>
+</div>
 
   <%# 時間表示 %>
   <div id="time-display-box">
