@@ -47,12 +47,15 @@ $('#pause_button').on('click', function () {
 
   $('#pause_in_progress').val(0);
   $('#worktime_pause_time').val(Date.now());
+
   if (db_time != null) {
     document.pause_form.submit();
   }
 
   $('#pause_submit').prop('disabled', true);
   $('#restart_submit').prop('disabled', false);
+  $('#pause_button_nologin').prop('disabled', true);
+  $('#restart_button_nologin').prop('disabled', false);
 });
 
 /* restartボタンクリック動作 */
@@ -73,6 +76,8 @@ $('#restart_button').on('click', function () {
 
   $('#pause_submit').prop('disabled', false);
   $('#restart_submit').prop('disabled', true);
+  $('#pause_button_nologin').prop('disabled', false);
+  $('#restart_button_nologin').prop('disabled', true);
 });
 
 /* breakボタンクリック動作 */
@@ -124,7 +129,6 @@ function time() {
         });
     }
   }
-  console.log("hoge")
 }
 setInterval(time, 1000);
 
