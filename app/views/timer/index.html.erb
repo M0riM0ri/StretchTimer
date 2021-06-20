@@ -46,7 +46,7 @@
       <%= f.submit "Timer Start", class: "btn btn-primary w-25", id: "start_button" %>
     <% end %>
   <% else %>
-    <%= link_to "Timer Start", timer_work_path, class: "btn btn-primary w-25", id: "start_button", data: {"turbolinks" => false} %>
+    <%= link_to "Timer Start", timer_work_path, class: "btn btn-primary w-25", id: "start_button" %>
   <% end %>
 
   <%= javascript_pack_tag 'timer/index' %>

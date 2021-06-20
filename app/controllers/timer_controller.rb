@@ -5,7 +5,7 @@ class TimerController < ApplicationController
       @update_worktime = current_user.worktimes.find_by(user_id: current_user.id)
       if @update_worktime.present?
         if @update_worktime.start_time.present? & @update_worktime.end_time.nil?
-          redirect_to timer_work_path, turbolinks: false
+          redirect_to timer_work_path
         end
       end
     end

@@ -36,7 +36,7 @@
         <%# リンク %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <%= content_tag :li, (link_to "Timer", root_path, class: "nav-link nav-item #{ 'active' if current_page?(root_path)|current_page?(timer_index_path)|current_page?(timer_work_path)|current_page?(timer_break_path)}", data: {"turbolinks" => false}) %>
+            <%= content_tag :li, (link_to "Timer", root_path, class: "nav-link nav-item #{ 'active' if current_page?(root_path)|current_page?(timer_index_path)|current_page?(timer_work_path)|current_page?(timer_break_path)}") %>
             <%= content_tag :li, (link_to "About", timer_about_path, class: "nav-link nav-item #{ 'active' if current_page?(timer_about_path)}") %>
             <%= content_tag :li, (link_to "TimerLog", timer_timerlog_path, class: "nav-link nav-item #{ 'active' if current_page?(timer_timerlog_path)}") %>
 
