@@ -25,7 +25,7 @@ $(function(){
     $('#recommend_message').show();
     $('#break_time_set').show();
     $('#recommend_message').show();
-    $('#start_button').show();
+    $('#start_button').css('display', 'inline-block');
   }
 });
 
