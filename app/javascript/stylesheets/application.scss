@@ -16,6 +16,7 @@ body {
   sans-serif;
 }
 
+/* nav-bar */
 nav {
   text-align: right;
 }
@@ -24,22 +25,30 @@ nav {
   margin: 0;
 }
 
+/* mainページ */
 .main {
   text-align: center;
   margin: 50px auto;
 }
 
-#recommend-message {
+#recommend_message {
   margin: 50px auto;
+  display: none;
 }
 
-#break-time-set {
+#break_time_set {
+  display: none;
+
   p{
     margin: 0;
   }
-}  
+}
 
-#time-display {
+#start_button {
+  display: none;
+}
+
+#time_display {
   font-size: 20px;
 }
 
@@ -59,13 +68,13 @@ button {
   margin: 0 auto;
 }
 
-#start-button {
+#start_button {
   margin: 0 auto;
 }
 
-#pause-button,
-#restart-button,
-#break-button {
+#pause_button,
+#restart_button,
+#break_button {
   padding: 0;
 }
 
@@ -81,11 +90,15 @@ button {
   }
 }
 
-#time-display {
+#time_display {
   font-family: monospace;
 }
 
 .links {
   margin: 0 auto;
   text-align: center;
+}
+
+.btn {
+  margin: 10px;
 }

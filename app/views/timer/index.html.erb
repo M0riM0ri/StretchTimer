@@ -1,12 +1,12 @@
 <div class="main">
 
   <%# 通知許可ボタン %>
-  <button class="btn btn-primary" id="notification-button">
+  <button class="btn btn-primary" id="notification_button">
     まずはここをクリックして通知を許可してください
   </button>
 
   <%# 推奨メッセージ %>
-  <div class="up-down-margin-sm" id="recommend-message">
+  <div class="up-down-margin-sm" id="recommend_message">
     <p>PC作業は1時間に10分程度の休憩をとることが推奨されています。</p>
     <p>参考リンク:
       <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
@@ -16,7 +16,7 @@
   </div>
 
   <%# 休憩間隔セット %>
-  <div class="up-down-margin-sm" id="break-time-set">
+  <div class="up-down-margin-sm" id="break_time_set">
     <p class="d-inline">休憩通知間隔を選んでStartしてください　:　</p>
     <select class="d-inline" id="break-time">
       <option value="0" id="zero">0</option>
@@ -43,10 +43,10 @@
       <%= f.hidden_field :restart_time %>
       <%= f.hidden_field :accumulate_time %>
       <%= f.hidden_field :in_progress %>
-      <%= f.submit "Timer Start", class: "btn btn-primary w-25", id: "start-button" %>
+      <%= f.submit "Timer Start", class: "btn btn-primary w-25", id: "start_button" %>
     <% end %>
   <% else %>
-    <%= link_to "Timer Start", timer_work_path, class: "btn btn-primary w-25", id: "start-button" %>
+    <%= link_to "Timer Start", timer_work_path, class: "btn btn-primary w-25", id: "start_button", data: {"turbolinks" => false} %>
   <% end %>
 
   <%= javascript_pack_tag 'timer/index' %>

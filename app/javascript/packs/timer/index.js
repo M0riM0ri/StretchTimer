@@ -1,50 +1,43 @@
-const notification_btn = document.getElementById("notification-button");
-const recommend_msg = document.getElementById("recommend-message");
-const break_time_set = document.getElementById("break-time-set");
-const break_time = document.getElementById("break-time");
-const zero = document.getElementById("zero");
-const start_btn = document.getElementById("start-button");
-
-/* 通知許可ボタンクリック動作 */
-function notification_click(){
-    //表示切り替え
-    notification_btn.style.display = "none";
-    recommend_msg.style.display = "block";
-    break_time_set.style.display = "block";
-    zero.selected = true;
-    start_btn.style.display = "block";
-}
-if ("Notification" in window) {   //通知機能がある場合
-  let permission = Notification.permission;
-  if (permission === "granted") { //通知許可されていたら
-    notification_click();
-  }else{                          //許可されていなかったら
-    notification_btn.onclick = function () { 
-      Notification
-        .requestPermission()
-        .then(function () {
-          let notification = new Notification("通知が許可されました。");
-        });
+/* 通知許可ボタン動作 */
+$(function(){
+  if ("Notification" in window) {
+    if (Notification.permission === "granted") {
+      //通知許可されていたら
       notification_click();
+    }else{
+      //通知許可されていなかったら
+      $('#notification_button').on('click', function () {
+        Notification
+          .requestPermission()
+          .then(function () {
+            let notification = new Notification("通知が許可されました。");
+          });
+        notification_click();
+      });
     }
-  }    
-}else{                            //通知機能がない場合
-  notification_btn.innerHTML
-    = "このブラウザは通知機能に対応しておりません</br>それでもよろしければ、このボタンをクリックしてください</br></br>通知機能を使用する場合、PCにてChrome/Firefox/Edge/Safariをお使いください";
-  notification_btn.onclick = notification_click;
-}
+  }else{ //通知機能がない場合
+    $('#notification_button').html(
+      "このブラウザは通知機能に対応しておりません</br>通知機能なしでよい場合、このボタンをクリックしてください</br></br>通知機能を使用する場合、PCにてChrome/Firefox/Edge/Safariをお使いください");
+    $('#notification_button').on('click', notification_click);
+  }
+  function notification_click() {
+    $('#notification_button').hide();
+    $('#recommend_message').show();
+    $('#break_time_set').show();
+    $('#recommend_message').show();
+    $('#start_button').show();
+  }
+});
 
 /* startボタンクリック動作 */
-if (document.getElementById("worktime_start_time") != null) {
-  start_btn.onclick = function () {
-    document.getElementById("worktime_start_time").value = Date.now();
-    document.getElementById("worktime_pause_time").value = 0;
-    document.getElementById("worktime_restart_time").value = Date.now();
-    document.getElementById("worktime_accumulate_time").value = 0;
-    document.getElementById("worktime_in_progress").value = 1;
-  }
-}
+  $('#start_button').on('click', function () {
+    $('#worktime_start_time').val(Date.now());
+    $('#worktime_pause_time').val(0);
+    $('#worktime_restart_time').val(Date.now());
+    $('#worktime_accumulate_time').val(0);
+    $('#worktime_in_progress').val(1);
+  });
 
 /* 休憩時間セット */
-function elapseSet() {}
-document.getElementById("break-time").onchange = elapseSet();
+// function elapseSet() {}
+// document.getElementById("break-time").onchange = elapseSet();

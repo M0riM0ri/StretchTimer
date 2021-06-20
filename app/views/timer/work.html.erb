@@ -1,24 +1,17 @@
 <div class="main">
 
-<div>
-  <%= javascript_tag do %>
-    let db_start_time = <%= raw @start_time.to_json %>;
-    let db_pause_time = <%= raw @pause_time.to_json %>;
-    let db_restart_time = <%= raw @restart_time.to_json %>;
-    let db_accumulate_time = <%= raw @accumulate_time.to_json %>;
-    let db_in_progress = <%= raw @in_progress.to_json %>;
-  <% end %>
-</div>
+  <%# DB取得 %>
+  <div id="db_time" data-json="<%= @update_worktime.to_json %>"></div>
 
   <%# 時間表示 %>
-  <div id="time-display-box">
-    <p id="time-message">計測中</p>
-    <p id="time-display">Now Loading...</p>
+  <div>
+    <p id="time_message">計測中</p>
+    <p id="time_display">Now Loading...</p>
   </div>
 
-  <div class="btn-group up-down-margin-sm" id="pause-break-button">
+  <div class="btn-group up-down-margin-sm">
     <%# 一時停止ボタン %>
-    <div id="pause-button">
+    <div id="pause_button">
       <% if user_signed_in? %>
         <%= form_for(@update_worktime, html: { name: "pause_form" }) do |f| %>
           <%= f.hidden_field :pause_time %>
@@ -26,12 +19,12 @@
           <%= f.submit "一時停止", class: "btn btn-primary", id: "pause_submit", type: "button" %>
         <% end %>
       <% else %>
-        <p class="btn btn-primary">一時停止</p>
+        <button class="btn btn-primary" id="pause_button_nologin">一時停止</button>
       <% end %>
     </div>
 
     <%# 再開ボタン %>
-    <div id="restart-button">
+    <div id="restart_button">
       <% if user_signed_in? %>
         <%= form_for(@update_worktime, html: { name: "restart_form" }) do |f| %>
           <%= f.hidden_field :restart_time %>
@@ -40,12 +33,12 @@
           <%= f.submit "再開", class: "btn btn-primary", id: "restart_submit", type: "button" %>
         <% end %>
       <% else %>
-        <p class="btn btn-primary">再開</p>
+        <button class="btn btn-primary" id="restart_button_nologin">再開</button>
       <% end %>
     </div>
 
     <%# 休憩ボタン %>
-    <div id="break-button">
+    <div id="break_button">
       <% if user_signed_in? %>
         <%= form_for(@update_worktime) do |f| %>
           <%= f.hidden_field :end_time %>
@@ -56,6 +49,7 @@
         <%= link_to "休憩", timer_break_path, class: "btn btn-primary" %>
       <% end %>
     </div>
+
   </div>
 
   <%= javascript_pack_tag 'timer/work' %>
