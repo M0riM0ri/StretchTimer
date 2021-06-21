@@ -1,7 +1,3 @@
-// document.addEventListener("turbolinks:load", function () {
-
-let now_time = 0;
-let elapsed_time = 0;
 let db_time, pause_time, restart_time, accumulate_time, in_progress;
 
 if ($('#db_time').attr('data-json') != 'null') {
@@ -20,7 +16,7 @@ if ($('#db_time').attr('data-json') != 'null') {
 }
 
 if (in_progress == 0) {
-  elapsed_time = pause_time - restart_time + accumulate_time;
+  let elapsed_time = pause_time - restart_time + accumulate_time;
   let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
   let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
   let seconds = Math.floor(elapsed_time / 1000 % 60);
@@ -41,12 +37,14 @@ if (in_progress == 0) {
 $('#pause_button').on('click', function () {
   in_progress = 0;
   pause_time = Date.now();
+  accumulate_time = pause_time - restart_time + accumulate_time;
 
   $('#time_message').html('一時停止中');
   document.title = '一時停止中 ~StretchTimer~';
 
   $('#pause_in_progress').val(0);
   $('#worktime_pause_time').val(Date.now());
+  $('#pause_accumulate_time').val(accumulate_time);
 
   if (db_time != null) {
     document.pause_form.submit();
@@ -61,7 +59,6 @@ $('#pause_button').on('click', function () {
 /* restartボタンクリック動作 */
 $('#restart_button').on('click', function () {
   in_progress = 1;
-  accumulate_time = pause_time - restart_time + accumulate_time;
   restart_time = Date.now();
 
   $('#time_message').html('計測中');
@@ -69,7 +66,6 @@ $('#restart_button').on('click', function () {
 
   $('#restart_in_progress').val(1);
   $('#worktime_restart_time').val(Date.now());
-  $('#worktime_accumulate_time').val(accumulate_time);
   if (db_time != null) {
     document.restart_form.submit();
   }
@@ -82,18 +78,20 @@ $('#restart_button').on('click', function () {
 
 /* breakボタンクリック動作 */
 $('#break_button').on('click', function () {
-  in_progress = 0;
-  // if (end_time != null) {
-    $('#break_in_progress').val(0);
-    $('#worktime_end_time').val(Date.now());
-  // }
+  if (in_progress){
+    in_progress = 0;
+    accumulate_time = Date.now() - restart_time + accumulate_time;
+  }
+
+  $('#break_in_progress').val(0);
+  $('#worktime_end_time').val(Date.now());
+  $('#break_accumulate_time').val(accumulate_time);
 });
 
 /* 時間表示 */
 function time() {
   if (in_progress == 1) {
-    now_time = Date.now();
-    elapsed_time = now_time - restart_time + accumulate_time;
+    let elapsed_time = Date.now() - restart_time + accumulate_time;
     let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
     let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
     let seconds = Math.floor(elapsed_time / 1000 % 60);
@@ -131,5 +129,3 @@ function time() {
   }
 }
 setInterval(time, 1000);
-
-// });

@@ -27,6 +27,7 @@ class TimerController < ApplicationController
   end
 
   def timerlog
+    @worktimes = current_user.worktimes.all if user_signed_in? 
   end
 
 end

@@ -1,12 +1,36 @@
 <div class="main">
   <% if user_signed_in? %>
-    <% if @user.worktimes.any? %>
-      <div>name: <%= current_user.name %></div>
-      <div>email: <%= current_user.email %></div>
+
+    <% if @worktimes.present? %>
+      <h1>タイマーログ</h1>
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>開始時間</th>
+              <th>終了時間</th>
+              <th>途中休憩時間</th>
+              <th>合計作業時間</th>
+            </tr>
+          </thead>
+          <% @worktimes.each do |worktime| %>
+            <tr>
+              <td><%= Time.at(worktime.start_time/1000).strftime("%m/%d %H:%M:%S") %></td>
+              <td><%= Time.at(worktime.end_time/1000).strftime("%m/%d %H:%M:%S") %></td>
+              <td><%= Time.at(worktime.accumulate_time/1000).strftime("%H:%M:%S") %></td>
+              <td></td>
+            </tr>
+          <%end%>
+        </table>
+      </div>
     <% else %>
-      <div>タイマーがここに記録されます。</div>
+
+      <%# ログがないとき %>
+      <div>タイマーログがここに記録されていきます。</div>
     <% end %>
   <% else %>
+
+    <%# 非ログイン時 %>
     <div>ログインすると、タイマーログが見られるようになります。</div>
   <% end %>
 </div>
