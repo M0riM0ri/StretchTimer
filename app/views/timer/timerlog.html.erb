@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
 
     <% if @worktimes.present? %>
-      <h2>タイマーログ</h1>
+      <h2>タイマーログ</h2>
       <div class="container">
         <table class="table">
           <thead>
@@ -11,6 +11,7 @@
               <th>終了時間</th>
               <th>途中休憩時間</th>
               <th>合計作業時間</th>
+              <th>健康度</th>
             </tr>
           </thead>
           <% @worktimes.each do |worktime| %>
@@ -26,6 +27,7 @@
               <% minutes = (worktime.accumulate_time/1000/60%60).to_s.rjust(2, '0') %>
               <% seconds = (worktime.accumulate_time/1000%60).to_s.rjust(2, '0') %>
               <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
+              <td>Good</td>
             </tr>
           <%end%>
         </table>
