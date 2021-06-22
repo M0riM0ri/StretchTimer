@@ -11,8 +11,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'

@@ -1,8 +1,11 @@
 <div class="main">
   <% if user_signed_in? %>
 
-    <% if @worktimes.present? %>
+    <% if 1 %>
+
       <h2>タイマーログ</h2>
+      <%= paginate @worktimes %>
+
       <div class="container">
         <table class="table">
           <thead>
@@ -17,21 +20,30 @@
           <% @worktimes.each do |worktime| %>
             <tr>
               <td><%= Time.at(worktime.start_time/1000).strftime("%m/%d %H:%M:%S") %></td>
-              <td><%= Time.at(worktime.end_time/1000).strftime("%m/%d %H:%M:%S") %></td>
-              <% hoge   = worktime.end_time - worktime.start_time - worktime.accumulate_time %>
-              <% hours   = (hoge/1000/60/60).to_s.rjust(2, '0') %>
-              <% minutes = (hoge/1000/60%60).to_s.rjust(2, '0') %>
-              <% seconds = (hoge/1000%60).to_s.rjust(2, '0') %>
-              <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
-              <% hours   = (worktime.accumulate_time/1000/60/60).to_s.rjust(2, '0') %>
-              <% minutes = (worktime.accumulate_time/1000/60%60).to_s.rjust(2, '0') %>
-              <% seconds = (worktime.accumulate_time/1000%60).to_s.rjust(2, '0') %>
-              <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
-              <td>Good</td>
+              <% if (worktime.end_time.present?) %>
+                <td><%= Time.at(worktime.end_time/1000).strftime("%m/%d %H:%M:%S") %></td>
+                <% hoge   = worktime.end_time - worktime.start_time - worktime.accumulate_time %>
+                <% hours   = (hoge/1000/60/60).to_s.rjust(2, '0') %>
+                <% minutes = (hoge/1000/60%60).to_s.rjust(2, '0') %>
+                <% seconds = (hoge/1000%60).to_s.rjust(2, '0') %>
+                <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
+                <% hours   = (worktime.accumulate_time/1000/60/60).to_s.rjust(2, '0') %>
+                <% minutes = (worktime.accumulate_time/1000/60%60).to_s.rjust(2, '0') %>
+                <% seconds = (worktime.accumulate_time/1000%60).to_s.rjust(2, '0') %>
+                <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
+                <td>Good</td>
+              <% else %>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              <% end %>
             </tr>
           <%end%>
         </table>
       </div>
+
+
     <% else %>
 
       <%# ログがないとき %>
