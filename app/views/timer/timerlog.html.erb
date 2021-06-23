@@ -1,9 +1,9 @@
-<div class="main">
+<div class="main timerlog">
   <% if user_signed_in? %>
 
-    <% if 1 %>
+    <% if @worktimes.present? %>
 
-      <h2>タイマーログ</h2>
+      <h2>Timer Log</h2>
       <%= paginate @worktimes %>
 
       <div class="container">
@@ -43,6 +43,7 @@
         </table>
       </div>
 
+      <%= paginate @worktimes %>
 
     <% else %>
 
