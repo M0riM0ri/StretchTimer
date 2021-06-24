@@ -16,7 +16,7 @@ if ($('#db_time').attr('data-json') != 'null') {
 }
 
 if (in_progress == 0) {
-  let elapsed_time = pause_time - restart_time + accumulate_time;
+  let elapsed_time = accumulate_time;
   let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
   let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
   let seconds = Math.floor(elapsed_time / 1000 % 60);
