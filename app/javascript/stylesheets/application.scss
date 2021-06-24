@@ -102,7 +102,21 @@ button {
 }
 
 #time_display {
-  font-family: monospace;
+font-family: 'Liberation Serif',
+'Noto Sans CJK JP',
+/* Linux/Android/ChromeOS */
+'TakaoGothic',
+'VL Gothic',
+/* Debian/Ubuntu */
+'Yu Gothic',
+'MS Gothic',
+/* Windows */
+'Hiragino Sans',
+'Hiragino Kaku Gothic ProN',
+'Osaka-Mono',
+/* Mac/iOS */
+'Noto Sans JP',
+Monospace;
 }
 
 .links {
