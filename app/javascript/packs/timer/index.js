@@ -24,6 +24,9 @@ $(function(){
     $('#notification_button').hide();
     $('#recommend_message').show();
     $('#notification_timing_set').show();
+    $("#notification_timing_set option[value='60']").prop('selected', true);
+    $('#worktime_timing').val(60);
+    localStorage.setItem('LocalTiming', 60);
     $('#recommend_message').show();
     $('#start_button').css('display', 'inline-block');
   }
