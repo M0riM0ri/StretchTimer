@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main index">
 
   <%# 通知許可ボタン %>
   <button class="btn btn-primary" id="notification_button">
@@ -6,7 +6,7 @@
   </button>
 
   <%# 推奨メッセージ %>
-  <div class="up-down-margin-sm" id="recommend_message">
+  <div id="recommend_message">
     <p>PC作業は1時間に10分程度の休憩をとることが推奨されています。</p>
     <p>参考リンク:
       <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
@@ -16,21 +16,16 @@
   </div>
 
   <%# 休憩間隔セット %>
-  <div class="up-down-margin-sm" id="break_time_set">
-    <p class="d-inline">休憩通知間隔を選んでStartしてください　:　</p>
-    <select class="d-inline" id="break-time">
-      <option value="0" id="zero">0</option>
-      <option value="5">5</option>
+  <div class="up-down-margin-sm" id="notification_timing_set">
+    <p>休憩通知間隔を設定し、適切な休憩タイミングを計りましょう。</p>
+    <p class="d-inline">休憩通知間隔　:　</p>
+    <select name=”timing” class="d-inline" id="notification_timing">
       <option value="10">10</option>
-      <option value="15">15</option>
       <option value="20">20</option>
-      <option value="25">25</option>
       <option value="30">30</option>
-      <option value="35">35</option>
       <option value="40">40</option>
-      <option value="45">45</option>
       <option value="50">50</option>
-      <option value="55">55</option>
+      <option value="60">60</option>
     </select>
     <p class="d-inline">分</p>
   </div>
@@ -43,6 +38,7 @@
       <%= f.hidden_field :restart_time %>
       <%= f.hidden_field :accumulate_time %>
       <%= f.hidden_field :in_progress %>
+      <%= f.hidden_field :timing %>
       <%= f.submit "Timer Start", class: "btn btn-primary w-25", id: "start_button" %>
     <% end %>
   <% else %>

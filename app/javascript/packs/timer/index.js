@@ -23,7 +23,7 @@ $(function(){
   function notification_click() {
     $('#notification_button').hide();
     $('#recommend_message').show();
-    $('#break_time_set').show();
+    $('#notification_timing_set').show();
     $('#recommend_message').show();
     $('#start_button').css('display', 'inline-block');
   }
@@ -39,5 +39,8 @@ $(function(){
   });
 
 /* 休憩時間セット */
-// function elapseSet() {}
-// document.getElementById("break-time").onchange = elapseSet();
+function elapseSet() {}
+$("#notification_timing").on('change', function() {
+  $('#worktime_timing').val(this.value);
+  localStorage.setItem('LocalTiming', this.value);
+});

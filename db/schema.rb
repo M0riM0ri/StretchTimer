@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_122919) do
+ActiveRecord::Schema.define(version: 2021_06_24_124731) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_122919) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "restart_time"
     t.integer "in_progress"
+    t.integer "timing"
     t.index ["user_id", "created_at"], name: "index_worktimes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_worktimes_on_user_id"
   end

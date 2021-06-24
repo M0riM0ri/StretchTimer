@@ -19,11 +19,12 @@ body {
 /* nav-bar */
 nav {
   text-align: right;
+
+  .navbar-toggler {
+    margin: 0;
+  }
 }
 
-.navbar-toggler {
-  margin: 0;
-}
 
 /* mainページ */
 .main {
@@ -31,27 +32,35 @@ nav {
   margin: 50px auto;
 }
 
-/*  */
+/* indexページ */
+.index {
+
+  #recommend_message {
+    margin: 50px auto;
+    display: none;
+
+    p {
+      margin: 10px auto;
+    }
+  }
+}
+
+/* timerlogページ */
 .timerlog {
-h2{
-  margin: 20px auto;
-}
-.pagination {
-  justify-content: center;
-}
-}
-
-#recommend_message {
-  margin: 50px auto;
-  display: none;
+  h2{
+    margin: 20px auto;
+  }
+  .pagination {
+    justify-content: center;
+  }
 }
 
-#break_time_set {
+#notification_timing_set {
   margin: 50px auto;
   display: none;
 
   p{
-    margin: 0;
+    margin: 10px auto;
   }
 }
 

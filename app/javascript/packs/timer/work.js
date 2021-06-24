@@ -1,4 +1,4 @@
-let db_time, pause_time, restart_time, accumulate_time, in_progress;
+let db_time, pause_time, restart_time, accumulate_time, in_progress, timing;
 
 if ($('#db_time').attr('data-json') != 'null') {
   /* ログイン時 */
@@ -7,13 +7,17 @@ if ($('#db_time').attr('data-json') != 'null') {
   restart_time = db_time.restart_time;
   accumulate_time = db_time.accumulate_time;
   in_progress = db_time.in_progress;
+  timing = db_time.timing;
 } else {
   /* 非ログイン時 */
   pause_time = 0;
   restart_time = Date.now();
   accumulate_time = 0;
   in_progress = 1;
+  timing = localStorage.getItem('LocalTiming');
 }
+
+$('#timing_display').html('休憩時間:' + timing + '分毎');
 
 if (in_progress == 0) {
   let elapsed_time = accumulate_time;
@@ -21,6 +25,10 @@ if (in_progress == 0) {
   let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
   let seconds = Math.floor(elapsed_time / 1000 % 60);
   $('#time_display').html(('0' + hours).slice(-2) + " : " + ('0' + minutes).slice(-2) + " : " + ('0' + seconds).slice(-2));
+
+  if (elapsed_time >= timing * 60 * 1000) {
+    $('#timing_display').html('休憩時間になりました。休憩ボタンを押して、ストレッチをしましょう。')
+  }
 
   $('#pause_submit').prop('disabled', true);
   $('#pause_button_nologin').prop('disabled', true);
@@ -95,37 +103,21 @@ function time() {
     let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
     let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
     let seconds = Math.floor(elapsed_time / 1000 % 60);
-
     $('#time_display').html(('0' + hours).slice(-2) + " : " + ('0' + minutes).slice(-2) + " : " + ('0' + seconds).slice(-2));
 
     //通知表示
-    if (seconds == 0 && minutes == 30 && hours == 0) {
+    if (minutes != 0 & minutes % timing == 0 & seconds == 0) {
       Notification
         .requestPermission()
         .then(function () {
-          let notification = new Notification("30分が経過しました。");
+          let notification = new Notification("休憩時間になりました。");
         });
     }
-    if (seconds == 0 && minutes == 45 && hours == 0) {
-      Notification
-        .requestPermission()
-        .then(function () {
-          let notification = new Notification("45分が経過しました。");
-        });
+
+    if (elapsed_time >= timing*60*1000) {
+      $('#timing_display').html('休憩時間になりました。休憩ボタンを押して、ストレッチをしましょう。')
     }
-    if (seconds == 0 && minutes == 0 && hours == 1) {
-      Notification
-        .requestPermission()
-        .then(function () {
-          let notification = new Notification("1時間が経過しました。");
-        });
-    } else if (seconds == 0 && minutes % 15 == 0 && hours >= 1) {
-      Notification
-        .requestPermission()
-        .then(function () {
-          let notification = new Notification("1時間以上が経過しました。");
-        });
-    }
+
   }
 }
 setInterval(time, 1000);
