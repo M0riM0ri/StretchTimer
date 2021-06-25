@@ -14,6 +14,7 @@
               <th>終了時間</th>
               <th>途中休憩時間</th>
               <th>合計作業時間</th>
+              <th>設定休憩間隔</th>
               <th>健康度</th>
             </tr>
           </thead>
@@ -31,6 +32,7 @@
                 <% minutes = (worktime.accumulate_time/1000/60%60).to_s.rjust(2, '0') %>
                 <% seconds = (worktime.accumulate_time/1000%60).to_s.rjust(2, '0') %>
                 <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
+                <td><%= worktime.timing %> 分</td>
                 <td>Good</td>
               <% else %>
                 <td></td>
@@ -48,11 +50,15 @@
     <% else %>
 
       <%# ログがないとき %>
-      <div>タイマーログがここに記録されていきます。</div>
+      <div class="message">
+        <p>タイマーログがここに記録されていきます。</p>
+      </div>
     <% end %>
   <% else %>
 
     <%# 非ログイン時 %>
-    <div>ログインすると、タイマーログが見られるようになります。</div>
+    <div class="message">
+      <p>ログインすると、タイマーログが見られるようになります。</p>
+    </div>
   <% end %>
 </div>

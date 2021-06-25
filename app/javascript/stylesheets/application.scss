@@ -2,22 +2,23 @@
 
 body {
   font-family: 
-  "SF Pro JP",
-  "SF Pro Text",
-  "SF Pro Icons",
-  "Hiragino Kaku Gothic Pro",
-  "ヒラギノ角ゴ Pro W3",
-  "メイリオ",
-  "Meiryo",
-  "ＭＳ Ｐゴシック",
-  "Helvetica Neue",
-  "Helvetica",
-  "Arial",
-  sans-serif;
+    "SF Pro JP",
+    "SF Pro Text",
+    "SF Pro Icons",
+    "Hiragino Kaku Gothic Pro",
+    "ヒラギノ角ゴ Pro W3",
+    "メイリオ",
+    "Meiryo",
+    "ＭＳ Ｐゴシック",
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
 }
 
 /* nav-bar */
 nav {
+  font-size: 16px;
   text-align: right;
 
   .navbar-toggler {
@@ -25,8 +26,7 @@ nav {
   }
 }
 
-
-/* mainページ */
+/* main */
 .main {
   text-align: center;
   margin: 50px auto;
@@ -34,7 +34,6 @@ nav {
 
 /* indexページ */
 .index {
-
   #recommend_message {
     margin: 50px auto;
     display: none;
@@ -45,9 +44,35 @@ nav {
   }
 }
 
+/* aboutページ */
+.about {
+  h1 {
+    margin: 20px auto;
+    font-size: 32px;
+  }
+  h2 {
+    margin: 20px auto;
+    font-size: 24px;
+  }
+  .list {
+    width: 30%;
+    margin: 50px auto;
+  }
+  li {
+    text-align: left;
+    font-size: 17px;
+    margin: 11px;
+  }
+}
+
 /* timerlogページ */
 .timerlog {
-  h2{
+  .message {
+    width: 50%;
+    font-size: 24px;
+    margin: 50px auto;
+  }
+  h2 {
     margin: 20px auto;
   }
   .pagination {
@@ -135,4 +160,12 @@ Monospace;
 
 .btn {
   margin: 10px;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: rgb(134, 134, 139);
+  border-top: solid 1px rgb(210, 210, 215);
 }

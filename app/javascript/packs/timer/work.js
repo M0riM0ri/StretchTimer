@@ -1,15 +1,14 @@
 let db_time, pause_time, restart_time, accumulate_time, in_progress, timing;
 
-if ($('#db_time').attr('data-json') != 'null') {
-  /* ログイン時 */
+/* 初期データセット */
+if ($('#db_time').attr('data-json') != 'null') { //ログイン時
   db_time = JSON.parse($('#db_time').attr('data-json'));
   pause_time = db_time.pause_time;
   restart_time = db_time.restart_time;
   accumulate_time = db_time.accumulate_time;
   in_progress = db_time.in_progress;
   timing = db_time.timing;
-} else {
-  /* 非ログイン時 */
+} else { //非ログイン時
   pause_time = 0;
   restart_time = Date.now();
   accumulate_time = 0;
@@ -17,24 +16,32 @@ if ($('#db_time').attr('data-json') != 'null') {
   timing = localStorage.getItem('LocalTiming');
 }
 
-$('#timing_display').html('休憩時間:' + timing + '分毎');
+/* 休憩間隔表示 */
+if (timing != null) {
+  $('#timing_display').html('休憩間隔:' + timing + '分');
+}else{
+  $('#timing_display').html('休憩間隔が設定されていません。')
+}
 
-if (in_progress == 0) {
+/* リロード後画面表示 */
+if (in_progress == 0) { //ポーズ中
   let elapsed_time = accumulate_time;
   let hours = Math.floor(elapsed_time / 1000 / 60 / 60);
   let minutes = Math.floor(elapsed_time / 1000 / 60 % 60);
   let seconds = Math.floor(elapsed_time / 1000 % 60);
   $('#time_display').html(('0' + hours).slice(-2) + " : " + ('0' + minutes).slice(-2) + " : " + ('0' + seconds).slice(-2));
 
-  if (elapsed_time >= timing * 60 * 1000) {
-    $('#timing_display').html('休憩時間になりました。休憩ボタンを押して、ストレッチをしましょう。')
+  if (timing != null ) {
+    if (elapsed_time >= timing * 60 * 1000) {
+      $('#timing_display').html('休憩時間になりました。休憩ボタンを押して、ストレッチをしましょう。')
+    }
   }
 
   $('#pause_submit').prop('disabled', true);
   $('#pause_button_nologin').prop('disabled', true);
   $('#time_message').html('一時停止中');
   document.title = '一時停止中 ~StretchTimer~';
-}else{
+}else{ //タイマー記録中
   $('#restart_submit').prop('disabled', true);
   $('#restart_button_nologin').prop('disabled', true);
   $('#time_message').html('計測中');
@@ -114,10 +121,11 @@ function time() {
         });
     }
 
-    if (elapsed_time >= timing*60*1000) {
-      $('#timing_display').html('休憩時間になりました。休憩ボタンを押して、ストレッチをしましょう。')
+    if (timing != null) {
+      if (elapsed_time >= timing*60*1000) {
+        $('#timing_display').html('休憩時間になりました。休憩ボタンを押して、ストレッチをしましょう。')
+      }
     }
-
   }
 }
 setInterval(time, 1000);
