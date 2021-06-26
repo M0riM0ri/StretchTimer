@@ -20,40 +20,45 @@ body {
 nav {
   font-size: 16px;
   text-align: right;
+  
+  .user-name {
+    margin: 0 50px;
+  }
 
   .navbar-toggler {
     margin: 0;
   }
+
 }
 
 /* main */
 .main {
   text-align: center;
-  margin: 50px auto;
 }
 
 /* indexページ */
 .index {
-  #recommend_message {
-    margin: 100px auto;
-    display: none;
-    font-size: 18px;
-    .reference {
-      margin: 10px auto;
-      font-size: 14px;
+  .message {
+    background-image: url("/images/green_dust_scratch.png");
+    margin: 0px auto;
+    padding: 50px 0;
+    h1.message {
+      font-size: 24px;
     }
+    h2.message {
+      font-size: 18px;
+    }
+    color: white;
+  }
+  #notification_button {
+    margin: 50px auto 70px auto;
   }
   #notification_timing_set {
-    margin: 50px auto;
+    margin-top: 50px auto;
     display: none;
-
-    .message {
-      font-size: 20px;
-    }
-    div {
+    
+    .timing-select {
       width: 25%;
-      border: 1px solid black;
-      border-radius: 50px;
       margin: 0 auto;
       padding: 10px;
       font-size: 18px;
@@ -64,10 +69,72 @@ nav {
       cursor: pointer;
     }
   }
+  #start_button {
+    margin: 0 auto;
+    display: none;
+  }
+  #recommend_message {
+    margin: 100px auto;
+    display: none;
+    font-size: 16px;
+    .reference {
+      margin: 5px auto;
+      font-size: 14px;
+    }
+  }
 }
+
+/* workページ */
+.work {
+  margin: 100px auto;
+
+  #time_message {
+    font-size: 25px;
+  }
+  #timing_display {
+    font-size: 20px;
+  }
+  #time_display {
+    font-size: 40px;
+    font-family:
+    'Liberation Serif',
+    'Noto Sans CJK JP',
+    /* Linux/Android/ChromeOS */
+    'TakaoGothic',
+    'VL Gothic',
+    /* Debian/Ubuntu */
+    'Yu Gothic',
+    'MS Gothic',
+    /* Windows */
+    'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN',
+    'Osaka-Mono',
+    /* Mac/iOS */
+    'Noto Sans JP',
+    Monospace;
+  }
+  #pause_button,
+  #restart_button,
+  #break_button {
+    padding: 0;
+  }
+}
+
+/* breakページ */
+.break {
+  margin: 50px auto;
+  font-size: 18px;
+  
+  #movie_switch {
+    margin-bottom: 30px;
+  }
+}
+
 
 /* aboutページ */
 .about {
+  margin: 50px auto;
+
   h1 {
     margin: 20px auto;
     font-size: 32px;
@@ -89,6 +156,8 @@ nav {
 
 /* timerlogページ */
 .timerlog {
+  margin: 50px auto;
+
   .message {
     width: 50%;
     font-size: 17px;
@@ -110,19 +179,6 @@ nav {
   }
 }
 
-
-#start_button {
-  display: none;
-}
-
-#time_display {
-  font-size: 20px;
-}
-
-.user-name {
-  margin: 0 50px;
-}
-
 .up-down-margin-sm {
   margin: 20px 0;
 }
@@ -131,20 +187,17 @@ nav {
   margin: 50px 0;
 }
 
-button {
-  margin: 0 auto;
+
+/* editページ */
+.edit {
+  margin: 50px auto;
+
+  div {
+    margin: 20px auto;
+  }
 }
 
-#start_button {
-  margin: 0 auto;
-}
-
-#pause_button,
-#restart_button,
-#break_button {
-  padding: 0;
-}
-
+/* エラーメッセージ */
 #error_explanation {
   color: red;
   text-align: center;
@@ -156,39 +209,9 @@ button {
   }
 }
 
-#time_display {
-  font-family:
-    'Liberation Serif',
-    'Noto Sans CJK JP',
-    /* Linux/Android/ChromeOS */
-    'TakaoGothic',
-    'VL Gothic',
-    /* Debian/Ubuntu */
-    'Yu Gothic',
-    'MS Gothic',
-    /* Windows */
-    'Hiragino Sans',
-    'Hiragino Kaku Gothic ProN',
-    'Osaka-Mono',
-    /* Mac/iOS */
-    'Noto Sans JP',
-    Monospace;
-}
-
-.btn {
-  margin: 10px;
-}
-
-/* editページ */
-.edit {
-  div {
-    margin: 20px auto;
-  }
-}
-
 /* ご意見リンク */
 .links {
-  margin: 0 auto;
+  margin: 10px auto;
   text-align: center;
 }
 

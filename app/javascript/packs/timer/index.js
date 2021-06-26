@@ -1,7 +1,7 @@
 /* 通知許可ボタン動作 */
 $(function(){
   if ("Notification" in window) {
-    if (Notification.permission === "granted") {
+    if (0) {
       //通知許可されていたら
       notification_click();
     }else{

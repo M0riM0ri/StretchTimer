@@ -1,8 +1,8 @@
-<div class="main">
+<div class="main break">
 
   <%# 休憩メッセージ %>
   <div>
-    <p>お疲れ様です。ストレッチをして身体を休めましょう。</p>
+    <p>お疲れ様でした。ストレッチをして身体を休めましょう。</p>
     <div>
       <iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/iEda-ZxH_1M" title="YouTube video player"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -12,7 +12,7 @@
   </div>
 
   <%# Homeボタン %>
-  <%= link_to "戻る", root_path, class: "btn btn-primary w-25", id: "home-button" %>
+  <%= link_to "戻る", root_path, class: "btn btn-primary w-25" %>
 
   <%= javascript_pack_tag 'timer/break' %>
 </div>
