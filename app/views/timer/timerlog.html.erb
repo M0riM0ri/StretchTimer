@@ -4,6 +4,9 @@
     <% if @worktimes.present? %>
 
       <h2>Timer Log</h2>
+
+      <p>健康度･･･設定休憩間隔+10分以内に休憩を取ったかを判定します。</p>
+
       <%= paginate @worktimes %>
 
       <div class="container">
@@ -20,8 +23,12 @@
           </thead>
           <% @worktimes.each do |worktime| %>
             <tr>
+              <%# 開始時間 %>
               <td><%= Time.at(worktime.start_time/1000).strftime("%m/%d %H:%M:%S") %></td>
-              <% if (worktime.end_time.present?) %>
+
+              <%# 休憩ボタンを押していれば %>
+              <% if worktime.end_time.present? %>
+                <%# 終了時間 %>
                 <td><%= Time.at(worktime.end_time/1000).strftime("%m/%d %H:%M:%S") %></td>
                 <% hoge   = worktime.end_time - worktime.start_time - worktime.accumulate_time %>
                 <% hours   = (hoge/1000/60/60).to_s.rjust(2, '0') %>
@@ -33,7 +40,11 @@
                 <% seconds = (worktime.accumulate_time/1000%60).to_s.rjust(2, '0') %>
                 <td><%= hours %>:<%= minutes %>:<%= seconds %></td>
                 <td><%= worktime.timing %> 分</td>
-                <td>Good</td>
+                <% if worktime.accumulate_time/1000 <= worktime.timing*60 + 10*60 %>
+                  <td class="good">Good</td>
+                <% else %>
+                  <td class="bad">Bad</td>
+                <% end %>
               <% else %>
                 <td></td>
                 <td></td>

@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 2021_06_24_124731) do
   end
 
   create_table "worktimes", force: :cascade do |t|
-    t.integer "start_time"
-    t.integer "pause_time"
-    t.integer "accumulate_time"
-    t.integer "end_time"
+    t.bigint "start_time"
+    t.bigint "pause_time"
+    t.bigint "accumulate_time"
+    t.bigint "end_time"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

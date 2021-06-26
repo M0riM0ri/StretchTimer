@@ -69,7 +69,7 @@ nav {
 .timerlog {
   .message {
     width: 50%;
-    font-size: 24px;
+    font-size: 17px;
     margin: 50px auto;
   }
   h2 {
@@ -77,6 +77,14 @@ nav {
   }
   .pagination {
     justify-content: center;
+  }
+  .good {
+    color: green;
+    font-weight: bold;
+  }
+  .bad {
+    color: red;
+    font-weight: bold;
   }
 }
 
