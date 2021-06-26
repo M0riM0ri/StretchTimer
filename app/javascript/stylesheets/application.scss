@@ -37,9 +37,27 @@ nav {
   #recommend_message {
     margin: 50px auto;
     display: none;
-
-    p {
+    font-size: 20px;
+    .reference {
       margin: 10px auto;
+      font-size: 14px;
+    }
+  }
+  #notification_timing_set {
+    .message {
+      font-size: 20px;
+    }
+    div {
+      width: 25%;
+      border: 2px solid skyblue;
+      border-radius: 50px;
+      margin: 0 auto;
+    }
+    select,option {
+      border: black 0px inset;
+      border-bottom: black 1px inset;
+      border-radius: 1px;
+      cursor: pointer;
     }
   }
 }
@@ -131,7 +149,6 @@ button {
   padding: 0;
 }
 
-
 #error_explanation {
   color: red;
   text-align: center;
@@ -144,26 +161,22 @@ button {
 }
 
 #time_display {
-font-family: 'Liberation Serif',
-'Noto Sans CJK JP',
-/* Linux/Android/ChromeOS */
-'TakaoGothic',
-'VL Gothic',
-/* Debian/Ubuntu */
-'Yu Gothic',
-'MS Gothic',
-/* Windows */
-'Hiragino Sans',
-'Hiragino Kaku Gothic ProN',
-'Osaka-Mono',
-/* Mac/iOS */
-'Noto Sans JP',
-Monospace;
-}
-
-.links {
-  margin: 0 auto;
-  text-align: center;
+  font-family:
+    'Liberation Serif',
+    'Noto Sans CJK JP',
+    /* Linux/Android/ChromeOS */
+    'TakaoGothic',
+    'VL Gothic',
+    /* Debian/Ubuntu */
+    'Yu Gothic',
+    'MS Gothic',
+    /* Windows */
+    'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN',
+    'Osaka-Mono',
+    /* Mac/iOS */
+    'Noto Sans JP',
+    Monospace;
 }
 
 .btn {
@@ -175,6 +188,12 @@ Monospace;
   div {
     margin: 20px auto;
   }
+}
+
+/* ご意見リンク */
+.links {
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* footer */

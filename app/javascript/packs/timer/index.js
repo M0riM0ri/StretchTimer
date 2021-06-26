@@ -47,3 +47,4 @@ $("#notification_timing").on('change', function() {
   $('#worktime_timing').val(this.value);
   localStorage.setItem('LocalTiming', this.value);
 });
+

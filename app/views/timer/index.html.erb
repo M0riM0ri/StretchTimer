@@ -7,8 +7,8 @@
 
   <%# 推奨メッセージ %>
   <div id="recommend_message">
-    <p>PC作業は1時間に10分程度の休憩をとることが推奨されています。</p>
-    <p>参考リンク:
+    <p>PC作業は1時間に約10分の休憩をとることが推奨されています。</p>
+    <p class="reference">参考リンク:
       <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
         情報機器作業における労働衛生管理のためのガイドラインについて
       </a>
@@ -17,17 +17,19 @@
 
   <%# 休憩間隔セット %>
   <div class="up-down-margin-sm" id="notification_timing_set">
-    <p>休憩通知間隔を設定し、適切な休憩タイミングを計りましょう。</p>
-    <p class="d-inline">休憩通知間隔　:　</p>
-    <select name=”timing” class="d-inline" id="notification_timing">
-      <option value="10">10</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-      <option value="40">40</option>
-      <option value="50">50</option>
-      <option value="60">60</option>
-    </select>
-    <p class="d-inline">分</p>
+    <p class="message">休憩時間をセットし、適切な休憩タイミングを計りましょう。</p>
+    <div>
+      <p class="d-inline">休憩時間　:　</p>
+      <select name=”timing” class="d-inline" id="notification_timing">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="60">60</option>
+      </select>
+      <p class="d-inline">分後</p>
+    </div>
   </div>
 
   <%# タイマ開始ボタン %>

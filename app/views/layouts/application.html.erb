@@ -42,7 +42,7 @@
 
             <% if user_signed_in? %>
               <%= content_tag :li, (link_to "User", edit_user_registration_path, class: "post nav-link nav-item #{ 'active' if current_page?(edit_user_registration_path)}") %>
-              <%= content_tag :li, (link_to "LogOut", user_session_path, {method: :delete, class: "nav-link nav-item #{ 'active' if current_page?(destroy_user_session_path)}"}) %>
+              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link nav-item"}) %>
             <% else %>
               <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link nav-item #{ 'active' if current_page?(new_user_session_path)}") %>
               <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link nav-item #{ 'active' if current_page?(new_user_registration_path)}") %>
@@ -61,7 +61,7 @@
     <%# 更新履歴、ご要望 %>
     <div class="links">
       <a class="btn btn-outline-primary btn-sm" href="http://gunj0.site-station.net/" target="_blank">
-        ご意見・ご要望
+        ご意見･ご要望･バグ報告
       </a>
     </div>
 
