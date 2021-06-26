@@ -41,7 +41,8 @@
             <%= content_tag :li, (link_to "TimerLog", timer_timerlog_path, class: "nav-link nav-item #{ 'active' if current_page?(timer_timerlog_path)}") %>
 
             <% if user_signed_in? %>
-              <%= content_tag :li, (link_to "LogOut", destroy_user_session_path, {method: :delete, class: "nav-link nav-item #{ 'active' if current_page?(destroy_user_session_path)}"}) %>
+              <%= content_tag :li, (link_to "User", edit_user_registration_path, class: "post nav-link nav-item #{ 'active' if current_page?(edit_user_registration_path)}") %>
+              <%= content_tag :li, (link_to "LogOut", user_session_path, {method: :delete, class: "nav-link nav-item #{ 'active' if current_page?(destroy_user_session_path)}"}) %>
             <% else %>
               <%= content_tag :li, (link_to "LogIn", new_user_session_path, class: "post nav-link nav-item #{ 'active' if current_page?(new_user_session_path)}") %>
               <%= content_tag :li, (link_to "SignUp", new_user_registration_path, class: "post nav-link nav-item #{ 'active' if current_page?(new_user_registration_path)}") %>
