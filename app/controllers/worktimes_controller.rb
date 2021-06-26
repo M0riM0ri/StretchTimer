@@ -15,6 +15,8 @@ class WorktimesController < ApplicationController
   end
 
   def destroy
+    Worktime.find(params[:id]).destroy
+    redirect_to timer_timerlog_path
   end
 
   private

@@ -19,6 +19,7 @@
               <th>合計作業時間</th>
               <th>設定休憩間隔</th>
               <th>健康度</th>
+              <th> </th>
             </tr>
           </thead>
           <% @worktimes.each do |worktime| %>
@@ -50,7 +51,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
               <% end %>
+                <td><%= link_to "削除", worktime, method: :delete,
+                  data: { confirm: "削除しますか?" } %></td>
             </tr>
           <%end%>
         </table>
