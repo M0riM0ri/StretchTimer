@@ -35,28 +35,32 @@ nav {
 /* indexページ */
 .index {
   #recommend_message {
-    margin: 50px auto;
+    margin: 100px auto;
     display: none;
-    font-size: 20px;
+    font-size: 18px;
     .reference {
       margin: 10px auto;
       font-size: 14px;
     }
   }
   #notification_timing_set {
+    margin: 50px auto;
+    display: none;
+
     .message {
       font-size: 20px;
     }
     div {
       width: 25%;
-      border: 2px solid skyblue;
+      border: 1px solid black;
       border-radius: 50px;
       margin: 0 auto;
+      padding: 10px;
+      font-size: 18px;
     }
     select,option {
       border: black 0px inset;
       border-bottom: black 1px inset;
-      border-radius: 1px;
       cursor: pointer;
     }
   }
@@ -106,14 +110,6 @@ nav {
   }
 }
 
-#notification_timing_set {
-  margin: 50px auto;
-  display: none;
-
-  p{
-    margin: 10px auto;
-  }
-}
 
 #start_button {
   display: none;

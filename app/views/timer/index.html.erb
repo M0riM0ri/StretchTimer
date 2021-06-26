@@ -2,23 +2,14 @@
 
   <%# 通知許可ボタン %>
   <button class="btn btn-primary" id="notification_button">
-    まずはここをクリックして通知を許可してください
+    ここをクリックして通知を許可すると、休憩タイミングが通知されます。
   </button>
 
-  <%# 推奨メッセージ %>
-  <div id="recommend_message">
-    <p>PC作業は1時間に約10分の休憩をとることが推奨されています。</p>
-    <p class="reference">参考リンク:
-      <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
-        情報機器作業における労働衛生管理のためのガイドラインについて
-      </a>
-    </p>
-  </div>
 
   <%# 休憩間隔セット %>
   <div class="up-down-margin-sm" id="notification_timing_set">
-    <p class="message">休憩時間をセットし、適切な休憩タイミングを計りましょう。</p>
-    <div>
+    <p class="message">休憩時間をセットし、健康的なPC作業時間を計りましょう。</p>
+    <div class="timing-select">
       <p class="d-inline">休憩時間　:　</p>
       <select name=”timing” class="d-inline" id="notification_timing">
         <option value="10">10</option>
@@ -46,6 +37,16 @@
   <% else %>
     <%= link_to "Timer Start", timer_work_path,method: :get, class: "btn btn-primary w-25", id: "start_button" %>
   <% end %>
+
+  <%# 推奨メッセージ %>
+  <div id="recommend_message">
+    <p>PC作業は1時間に約10分の休憩をとることが推奨されています。</p>
+    <p class="reference">参考リンク:
+      <a href="https://www.mhlw.go.jp/content/000539604.pdf" target="_blank" rel="noopener noreferrer">
+        情報機器作業における労働衛生管理のためのガイドラインについて
+      </a>
+    </p>
+  </div>
 
   <%= javascript_pack_tag 'timer/index' %>
 </div>
