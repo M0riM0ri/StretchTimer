@@ -1,4 +1,5 @@
-<%= @contact.name %> 様 から問い合わせがありました。<br>
+<%= @contact.name %> 様 からのお問い合わせ<br>
+<% if @contact.email %>
 【Mail】：<%= @contact.email %><br>
-【Stretch Timer】<br>
-<span style="white-space: pre-wrap;"><%= @contact.message %></span>
+<% end %>
+<%= @contact.message %>

@@ -1,20 +1,22 @@
 class ContactsController < ApplicationController
   def new
     @contact = Contact.new
+    render  :locals => { :error => "" }
+
   end
 
   # 確認画面
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
-      render :new
+      render :new, :locals => { :error => "入力内容に不備があります" }
     end
   end
   
-  # 入力内容に誤りがあった場合
+  # 戻る
   def back
     @contact = Contact.new(contact_params)
-    render :new
+    render :new, :locals => { :error => "" }
   end
 
   # 送信
@@ -25,6 +27,7 @@ class ContactsController < ApplicationController
       redirect_to done_path
     else
       render :new
+      render :new, :locals => { :error => "入力内容に不備があります" }
     end
   end
 

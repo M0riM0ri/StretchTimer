@@ -219,6 +219,27 @@ nav {
   text-align: center;
 }
 
+/* ご意見フォーム */
+.mail {
+  width: 75%;
+  margin: 50px auto;
+
+  .error {
+    color: red;
+  }
+  .btn {
+    margin: 20px auto;
+  }
+  .back {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+  }
+  .back:hover {
+    text-decoration: underline;
+  }
+}
+
 /* footer */
 .footer {
   position: absolute;
