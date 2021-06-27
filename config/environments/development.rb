@@ -63,6 +63,7 @@ Rails.application.configure do
   # Cloud9 への接続を許可する
   config.hosts.clear
 
+  # Mailer設定
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       port: 587,
