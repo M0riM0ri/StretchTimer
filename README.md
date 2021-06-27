@@ -30,8 +30,10 @@ https://stretchtimer.herokuapp.com/
 
 ## 機能一覧
 - タイマー記録、削除(ajax)
+- ブラウザ通知機能
 - ユーザ登録、ログイン機能、編集機能(devise)
 - ページネーション機能(kaminari)
+- メールフォーム
 
 ## Author
 
