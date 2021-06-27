@@ -9,10 +9,17 @@ https://stretchtimer.herokuapp.com/
 ## Overview
 
 Stretch Timerは、健康的なPC作業をサポートします。
+
 作業時間を記録し、休憩時間を通知してストレッチを促します。
 
+
 Stretch Timer supports healthy PC work time.
+
 You can track of your work time and be prompted to take a break for stretching.
+
+## Features
+
+- 
 
 ## Requirement
 - Ruby 2.6.3
@@ -20,17 +27,22 @@ You can track of your work time and be prompted to take a break for stretching.
 - SQLite3 1.4.2 (local)
 - PostgreSQL 13.3 (heroku)
 
+
 - webpacker 4.3.0 : Module bundler 
 - jQuery 3.6.0    : JavaScript library
 - Bootstrap 4.6.0 : CSS library
 - devise 4.8.0    : Authentication system
 - kaminari 1.2.1  : paginator
 
-## Usage
+## Install
 
-$ git@github.com:M0riM0ri/StretchTimer.git
+$ git clone https://github.com/M0riM0ri/StretchTimer
 
-## Features
+$ bundle install --without production
+
+$ rails db:migrate
+
+$ rails server
 
 ## Author
 
