@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
       render :new
     end
   end
-　
+  
   # 入力内容に誤りがあった場合
   def back
     @contact = Contact.new(contact_params)
