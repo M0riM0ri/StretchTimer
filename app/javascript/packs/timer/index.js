@@ -1,7 +1,7 @@
 /* 通知許可ボタン動作 */
 $(function(){
   if ("Notification" in window) {
-    if (0) {
+    if (Notification.permission === "granted") {
       //通知許可されていたら
       notification_click();
     }else{
@@ -47,4 +47,3 @@ $("#notification_timing").on('change', function() {
   $('#worktime_timing').val(this.value);
   localStorage.setItem('LocalTiming', this.value);
 });
-

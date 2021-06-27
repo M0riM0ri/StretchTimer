@@ -14,6 +14,12 @@ body {
     "Helvetica",
     "Arial",
     sans-serif;
+
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    background-image: url("/images/4932179_m.jpg");
 }
 
 /* nav-bar */
@@ -24,11 +30,9 @@ nav {
   .user-name {
     margin: 0 50px;
   }
-
   .navbar-toggler {
     margin: 0;
   }
-
 }
 
 /* main */
@@ -39,22 +43,22 @@ nav {
 /* indexページ */
 .index {
   .message {
-    background-image: url("/images/green_dust_scratch.png");
     margin: 0px auto;
     padding: 50px 0;
+
     h1.message {
       font-size: 24px;
     }
     h2.message {
       font-size: 18px;
     }
-    color: white;
+    color: #555;
   }
   #notification_button {
     margin: 50px auto 70px auto;
   }
   #notification_timing_set {
-    margin-top: 50px auto;
+    margin: 20px auto 20px auto;
     display: none;
     
     .timing-select {
@@ -77,6 +81,7 @@ nav {
     margin: 100px auto;
     display: none;
     font-size: 16px;
+
     .reference {
       margin: 5px auto;
       font-size: 14px;
@@ -97,21 +102,21 @@ nav {
   #time_display {
     font-size: 40px;
     font-family:
-    'Liberation Serif',
-    'Noto Sans CJK JP',
-    /* Linux/Android/ChromeOS */
-    'TakaoGothic',
-    'VL Gothic',
-    /* Debian/Ubuntu */
-    'Yu Gothic',
-    'MS Gothic',
-    /* Windows */
-    'Hiragino Sans',
-    'Hiragino Kaku Gothic ProN',
-    'Osaka-Mono',
-    /* Mac/iOS */
-    'Noto Sans JP',
-    Monospace;
+      'Liberation Serif',
+      'Noto Sans CJK JP',
+      /* Linux/Android/ChromeOS */
+      'TakaoGothic',
+      'VL Gothic',
+      /* Debian/Ubuntu */
+      'Yu Gothic',
+      'MS Gothic',
+      /* Windows */
+      'Hiragino Sans',
+      'Hiragino Kaku Gothic ProN',
+      'Osaka-Mono',
+      /* Mac/iOS */
+      'Noto Sans JP',
+      Monospace;
   }
   #pause_button,
   #restart_button,
@@ -129,7 +134,6 @@ nav {
     margin-bottom: 30px;
   }
 }
-
 
 /* aboutページ */
 .about {
@@ -187,10 +191,9 @@ nav {
   margin: 50px 0;
 }
 
-
 /* editページ */
 .edit {
-  margin: 50px auto;
+  margin: 30px auto;
 
   div {
     margin: 20px auto;
@@ -217,8 +220,14 @@ nav {
 
 /* footer */
 .footer {
-  text-align: center;
-  font-size: 12px;
-  color: rgb(134, 134, 139);
-  border-top: solid 1px rgb(210, 210, 215);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  .copyright {   
+    text-align: center;
+    font-size: 12px;
+    color: rgb(134, 134, 139);
+    border-top: solid 1px rgb(210, 210, 215);
+  }
 }
