@@ -26,6 +26,7 @@ https://stretchtimer.herokuapp.com/
 - webpacker 4.3.0
 - jQuery 3.6.0
 - Bootstrap 4.6.0
+- RSpec 5.0.1
 - heroku
 
 ## 機能一覧
