@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'timer/about'
   get 'timer/timerlog'
   resources :worktimes
+  post 'timer/guest_sign_in', to: 'timer#guest_sign_in'
 
   # Login
   get 'users', to: 'users#sign_up' 
