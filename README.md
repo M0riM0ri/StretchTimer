@@ -35,6 +35,7 @@ https://stretchtimer.herokuapp.com/
 - ユーザ登録、ログイン機能、編集機能(devise)
 - ページネーション機能(kaminari)
 - メールフォーム
+- ゲストログイン
 
 ## Author
 
