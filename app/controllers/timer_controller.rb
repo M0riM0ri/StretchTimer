@@ -46,7 +46,7 @@ class TimerController < ApplicationController
       end
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストとしてログインしました。TimerLogを閲覧できます。'
   end
 
 end
