@@ -19,10 +19,13 @@
     <li>ブラウザを閉じてもタイマーが保持されます。</li>
   </ul>
 
-  <div>
-    <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
-  </div>
-  <div class="signup">
-    <%= link_to "Sign up", new_user_registration_path %>
-  </div>
+  <% unless user_signed_in? %>
+    <div>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+    </div>
+    <div class="signup">
+      <%= link_to "Sign up", new_user_registration_path %>
+    </div>
+  <% end %>
+
 </div>
