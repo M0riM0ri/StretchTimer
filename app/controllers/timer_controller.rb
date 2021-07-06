@@ -39,10 +39,4 @@ class TimerController < ApplicationController
     redirect_to root_path, notice: 'ゲストとしてログインしました。'
   end
 
-  private
-
-  def user_params
-    params.permit(:name, :email, :password)
-  end
-
 end

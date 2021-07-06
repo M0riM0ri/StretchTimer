@@ -46,9 +46,11 @@
   <% end %>
 
   <%# ゲストログイン %>
-  <% unless user_signed_in? %>
-    <%= link_to 'ゲストログイン', timer_guest_sign_in_path, method: :post, class: "btn btn-secondary w-25 guest" %>
-  <% end %>
+  <div class="guest_login">
+    <% unless user_signed_in? %>
+      <%= link_to 'ゲストログイン', timer_guest_sign_in_path, method: :post, class: "btn btn-secondary w-25" %>
+    <% end %>
+  </div>
 
   <%# 推奨メッセージ %>
   <div id="recommend_message">
