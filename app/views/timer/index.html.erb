@@ -45,6 +45,11 @@
     <%= link_to "Timer Start", timer_work_path,method: :get, class: "btn btn-primary w-25", id: "start_button" %>
   <% end %>
 
+  <%# ゲストログイン %>
+  <% unless user_signed_in? %>
+    <%= link_to 'ゲストログイン', timer_guest_sign_in_path, method: :post, class: "btn btn-secondary w-25 guest" %>
+  <% end %>
+
   <%# 推奨メッセージ %>
   <div id="recommend_message">
     <p>PC作業は1時間毎に10〜15分の休憩をとることが推奨されています。</p>

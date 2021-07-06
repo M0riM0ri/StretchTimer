@@ -32,11 +32,17 @@ class TimerController < ApplicationController
 
   def guest_sign_in
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
-      user.name = "ゲスト"
+      user.name = "Guest"
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストとしてログインしました。'
+  end
+
+  private
+
+  def user_params
+    params.permit(:name, :email, :password)
   end
 
 end
