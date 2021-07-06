@@ -12,7 +12,21 @@
   </div>
 
   <%# Homeボタン %>
-  <%= link_to "戻る", root_path, class: "btn btn-primary w-25" %>
+  <% if user_signed_in? %>
+    <div>
+      <%= link_to "タイマーログを見る", timer_timerlog_path, class: "btn btn-primary w-25" %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+    </div>
+    <div class="signup">
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link" %>
+    </div>
+  <% end %>
+  <div class="">
+    <%= link_to "戻る", root_path, class: "btn btn-primary w-25" %>
+  </div>
 
   <%= javascript_pack_tag 'timer/break' %>
 </div>

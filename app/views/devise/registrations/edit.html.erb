@@ -1,6 +1,6 @@
 <div class="main edit">
 
-  <% unless current_user.email = "guest@example.com" %>
+  <% unless current_user.name = "Guest" %>
   <div>
     <h2>登録内容の変更</h2>
   </div>
@@ -54,7 +54,7 @@
     <p>ゲストユーザーのため、ユーザー情報の編集はできません。</p>
     <p>一度ログアウトしてSign upすると、ユーザー情報を編集できるようになります。</p>
     <div>
-      <%= link_to "LogOut", destroy_user_session_path, {method: :delete, class: "btn btn-primary"} %>
+      <%= link_to "Log out", destroy_user_session_path, {method: :delete, class: "btn btn-primary"} %>
     </div>
   <% end %>
 

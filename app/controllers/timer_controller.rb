@@ -31,9 +31,19 @@ class TimerController < ApplicationController
   end
 
   def guest_sign_in
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
-      user.name = "Guest"
+    user = User.create do |user|
+      user.name     = "Guest"
+      user.email    = SecureRandom.alphanumeric(15) + "@email.com"
       user.password = SecureRandom.urlsafe_base64
+    end
+    for num in 1..15
+      worktime = user.worktimes.create do |worktime|
+        worktime.start_time       = Time.now - 60*1000*1000 + num * 60*1000 - 100*60*1000
+        worktime.accumulate_time  = 5*60*1000 * num
+        worktime.end_time         = Time.now - 60*1000*1000 + num * 60*1000
+        worktime.in_progress      = 1
+        worktime.timing           = 60
+      end
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストとしてログインしました。'
