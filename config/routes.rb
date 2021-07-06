@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
   
   root 'timer#index'
-
+  
   # Timer
   get 'timer/index'
   get 'timer/work'
@@ -12,6 +11,9 @@ Rails.application.routes.draw do
   resources :worktimes
   
   # Login
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+  }
   get 'users', to: 'users#sign_up' 
   post 'timer/guest_sign_in', to: 'timer#guest_sign_in'
 

@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -63,7 +63,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #ログアウト後のリダイレクト先
   def after_sign_out_path_for(resource)
     root_path
-  end 
+  end
+
+  #編集時にパスワード入力を省く
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
+  #更新後のパス
+  def after_update_path_for(resource)
+    edit_user_registration_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

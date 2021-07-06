@@ -17,11 +17,10 @@
       <%= link_to "タイマーログを見る", timer_timerlog_path, class: "btn btn-primary w-25" %>
     </div>
   <% else %>
-    <div>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
-    </div>
-    <div class="signup">
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link" %>
+    <div class="login">
+      <div class="guest">
+        <%= link_to 'ゲストログイン(簡単登録)', timer_guest_sign_in_path, method: :post, class: "btn btn-info" %>
+      </div>
     </div>
   <% end %>
   <div class="return">

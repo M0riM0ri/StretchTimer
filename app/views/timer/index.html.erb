@@ -10,9 +10,12 @@
   <p class="alert text-danger text-center"><%= alert %></p>
 
   <%# 通知許可ボタン %>
-  <button class="btn btn-primary" id="notification_button">
-    まずはここをクリックして通知を許可しましょう。
-  </button>
+  <div id="notification_button_block">
+    <p>このアプリは、あなたのPC作業時間を記録し、定期的なストレッチタイムを通知します。</p>
+    <button class="btn btn-primary" id="notification_button">
+      まずはここをクリックして通知を許可しましょう。
+    </button>
+  </div>
 
   <%# 休憩間隔セット %>
   <div id="notification_timing_set">
@@ -49,7 +52,7 @@
   <% unless user_signed_in? %>
     <div class="login">
       <div class="guest">
-        <%= link_to 'ゲストログイン(お試し用)', timer_guest_sign_in_path, method: :post, class: "btn btn-info" %>
+        <%= link_to 'ゲストログイン(簡単登録)', timer_guest_sign_in_path, method: :post, class: "btn btn-info" %>
       </div>
     </div>
   <% end %>

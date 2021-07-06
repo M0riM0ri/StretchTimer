@@ -75,5 +75,14 @@
     <div class="message">
       <p>ログインすると、タイマーログが見られるようになります。</p>
     </div>
+
+    <%# ゲストログイン %>
+    <% unless user_signed_in? %>
+    <div class="login">
+      <div class="guest">
+        <%= link_to 'ゲストログイン(簡単登録)', timer_guest_sign_in_path, method: :post, class: "btn btn-info" %>
+      </div>
+    </div>
+    <% end %>
   <% end %>
 </div>

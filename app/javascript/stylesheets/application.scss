@@ -47,16 +47,21 @@ nav {
     margin: 0px auto;
     padding: 50px 0;
 
-    h1.message {
-      font-size: 24px;
+    h1 {
+      font-size: 40px;
     }
-    h2.message {
-      font-size: 18px;
+    h2 {
+      font-size: 32px;
     }
     color: #555;
   }
-  #notification_button {
-    margin: 50px auto 70px auto;
+  #notification_button_block {
+    p {
+      font-size: 20px;
+    }
+    #notification_button {
+      margin: 50px auto 70px auto;
+    }
   }
   #notification_timing_set {
     margin: 20px auto 20px auto;

@@ -17,11 +17,11 @@ $(function(){
     }
   }else{ //通知機能がない場合
     $('#notification_button').html(
-      "このブラウザは通知機能に対応しておりません</br>通知機能なしでよい場合、このボタンをクリックしてください</br></br>通知機能を使用する場合、PCにてChrome/Firefox/Edge/Safariをお使いください");
+      "このブラウザは通知機能に対応しておりません</br>通知機能なしで利用する場合、このボタンをクリックしてください</br></br>通知機能を使用する場合、PCのChrome/Firefox/Edge/Safariをお使いください");
     $('#notification_button').on('click', notification_click);
   }
   function notification_click() {
-    $('#notification_button').hide();
+    $('#notification_button_block').hide();
     $('#recommend_message').show();
     $('#notification_timing_set').show();
     $("#notification_timing_set option[value='60']").prop('selected', true);
