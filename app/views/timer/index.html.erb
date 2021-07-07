@@ -11,7 +11,7 @@
 
   <%# 通知許可ボタン %>
   <div id="notification_button_block">
-    <p>このアプリは、あなたのPC作業時間を記録し、定期的なストレッチタイムを通知します。</p>
+    <p class="text-gray">あなたのPC作業時間を計測し、定期的にストレッチタイムを通知します。</p>
     <button class="btn btn-primary" id="notification_button">
       まずはここをクリックして通知を許可しましょう。
     </button>
@@ -53,15 +53,17 @@
     <div class="login">
       <div class="guest">
         <%= link_to 'ゲストログイン(簡単登録)', timer_guest_sign_in_path, method: :post, class: "btn btn-info" %>
+        <p class="text-info font-weight-bold">ログインするとタイマーログが記録されていきます。</p>
       </div>
     </div>
   <% end %>
 
   <%# 推奨メッセージ %>
-  <div id="recommend_message">
+  <div id="recommend_message" class="border rounded w-50">
     <p>PC作業は1時間毎に10〜15分の休憩をとることが推奨されています。</p>
     <p class="reference">参考リンク:
-      <a href="https://www.mhlw.go.jp/content/000580827.pdf" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.mhlw.go.jp/content/000580827.pdf" target="_blank"
+        rel="noopener noreferrer">
         情報機器作業における労働衛生管理のためのガイドライン
       </a>
     </p>

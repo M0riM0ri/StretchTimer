@@ -56,11 +56,11 @@ nav {
     color: #555;
   }
   #notification_button_block {
+    margin: 30px auto 80px auto;
+    color: #555;
+
     p {
       font-size: 20px;
-    }
-    #notification_button {
-      margin: 50px auto 70px auto;
     }
   }
   #notification_timing_set {
@@ -84,17 +84,31 @@ nav {
     display: none;
   }
   #recommend_message {
-    margin: 100px auto;
+    margin: 50px auto;
     display: none;
-    font-size: 16px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid  #555;
+    border-radius: 2px;
+
+    p {
+      margin: 5px auto;
+    }
 
     .reference {
-      margin: 5px auto;
-      font-size: 14px;
+      a {
+        color: #555;
+        text-decoration: underline  ;
+      }
     }
   }
   .login {
     margin: 10px auto;
+
+    p {
+      margin: 10px auto;
+      font-size: 14px;
+    }
   }
 }
 
