@@ -1,10 +1,6 @@
 describe TimerController, type: :controller do
 
-  let(:user) { create(:user) }
-  let(:user_params) { attributes_for(:user) }
-  let(:invalid_user_params) { attributes_for(:user, name: "") }
-
-  describe 'GET #index' do
+  describe 'GET static pages' do
 
     it 'responds the correct status' do
       get :index
@@ -15,12 +11,41 @@ describe TimerController, type: :controller do
       get :index
       expect(response).to render_template :index
     end
-    
-    # it 'responds ' do
-    #   expect{
-    #     post new_user_registration_path(user_params)
-    #   }.to change(User, :count).by 1
-    # end
+
+    it 'renders the :work template' do
+      get :work
+      expect(response).to render_template :work
+    end
+
+    it 'renders the :index template' do
+      get :break
+      expect(response).to render_template :break
+    end
+
+    it 'renders the :index template' do
+      get :about
+      expect(response).to render_template :about
+    end
+
+    it 'renders the :index template' do
+      get :timerlog
+      expect(response).to render_template :timerlog
+    end
+
+  end
+
+  describe 'GET guest_sign_in' do
+
+    it 'responds the correct status' do
+      expect{
+        get :guest_sign_in
+      }.to change{ User.count }.by 1
+    end
+
+    it 'redirects to top page' do
+      get :guest_sign_in
+      expect(response).to redirect_to root_path
+    end
 
   end
 
