@@ -1,16 +1,19 @@
-require 'rails_helper'
-
-RSpec.describe TimerController, type: :controller do
+describe TimerController, type: :controller do
 
   let(:user) { create(:user) }
   let(:user_params) { attributes_for(:user) }
   let(:invalid_user_params) { attributes_for(:user, name: "") }
 
-  describe 'POST #create' do
+  describe 'GET #index' do
+
+    it 'responds the correct status' do
+      get :index
+      expect(response.status).to eq 200
+    end
 
     it 'renders the :index template' do
       get :index
-      expect(response).to have_http_status "200"
+      expect(response).to render_template :index
     end
     
     # it 'responds ' do
