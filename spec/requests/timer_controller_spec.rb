@@ -36,7 +36,7 @@ describe TimerController, type: :controller do
 
   describe 'GET guest_sign_in' do
 
-    it 'responds the correct status' do
+    it 'change counts of User when guest sign in' do
       expect{
         get :guest_sign_in
       }.to change{ User.count }.by 1
